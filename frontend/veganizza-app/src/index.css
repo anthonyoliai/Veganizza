@@ -1,0 +1,251 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.navbar {
+  padding: 0.2rem 1rem 0.2rem 1rem;
+}
+header {
+  float: top;
+  position: relative;
+  z-index: 1;
+  background-color: black;
+}
+
+#header-nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 52px;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+
+.main-screen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.main-splash {
+  color: white;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 151px;
+}
+
+.splash-text {
+  z-index: 1;
+  color: white;
+  position: relative;
+  left: 68%;
+  top: 55%;
+  display: inline-block;
+}
+
+.splash-text h3 {
+  font-size: 4.5rem;
+  font-weight: 600;
+  margin: 0px 0px 0px 0px;
+  padding-bottom: 5px;
+  position: relative;
+  left: -15px;
+  border-bottom: 5px solid orange;
+  border-right: 5px solid orange;
+}
+
+.splash-text p {
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-align: left;
+  margin: 0;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  object-fit: cover;
+  transform: scale(1, 1);
+}
+
+.button {
+  background-color: #c72626;
+  position: relative;
+  border: 0px;
+  font-size: 1.375rem;
+  color: white;
+  font-weight: 500;
+  outline: none;
+}
+
+.splash-button {
+  right: 5px;
+  top: 10px;
+}
+
+.main-welcome {
+  position: relative;
+  padding-left: 87px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main-welcome h3 {
+  font-size: 5.5rem;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+}
+
+.main-welcome p {
+  color: #7a7a7a;
+  letter-spacing: 6px;
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 1rem;
+}
+
+.steps-container {
+  text-align: center;
+  font-size: 2.6rem;
+  position: relative;
+}
+.steps-container h3 {
+  font-weight: 600;
+}
+
+.stripe {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.stripe img {
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.bg-stripe {
+  position: relative;
+  z-index: -1;
+  bottom: 165px;
+  display: inline-block;
+  width: 100%;
+  height: 100px;
+  content: none;
+  background-color: #ffc5c5;
+}
+
+.promo-carousel {
+  margin-bottom: 50px;
+}
+.promo-carousel img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.carousel {
+  max-width: 100%;
+  max-height: 50%;
+}
+.carousel-caption {
+  position: absolute;
+  top: 65%;
+  left: 4%;
+}
+
+.carousel-caption h2 {
+  display: inline;
+  background-color: white;
+  color: black;
+  font-size: 3rem;
+  font-weight: 800;
+  padding: 0px 25px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 10;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black;
+  padding: 22px;
+  position: relative;
+  font-size: 50px;
+}
+
+.hot-items-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hot-items-container.item {
+  padding: 5px;
+}
+
+.topSellersContainer {
+  padding-bottom: 2rem;
+}
+.topSellers {
+  text-align: center;
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topSellers h2 {
+  display: inline;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.card-body {
+  padding: 5px 10px;
+}
+
+.card-text {
+  padding-top: 8px;
+  padding-bottom: 30px;
+  font-style: italic;
+}
+
+.card-img-top {
+  width: 284px;
+  height: 213px;
+  margin-bottom: 15px;
+}
+
+.btn-test {
+  margin-bottom: 10px;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  text-align: left;
+  padding-right: 0;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
