@@ -19,6 +19,9 @@ const MainScreen = () => {
       <PromoScreen></PromoScreen>
       <HotItemsScreen></HotItemsScreen>
       <MenuScreen></MenuScreen>
+      <Fade bottom>
+        <Steps></Steps>
+      </Fade>
     </div>
   )
 }

@@ -1,16 +1,18 @@
 import React from 'react'
 import { Image } from 'react-bootstrap'
+import Button from '../components/Button'
 const MenuItem = () => {
   return (
     <div class='menu-item'>
-      <div class='img-square-wrapper'>
-        <Image className='menu-image' src='images/pizza_main.jpg'></Image>
-      </div>
-      <div class='card-body'>
-        <p>
-          Example menu description. Nothing too fancy. Just to see if it would
-          actually work.
-        </p>
+      <Image
+        className='menu-image'
+        src='images/thumbnail/pizza_vegeroni_thumb.jpg'
+      ></Image>
+      <div class='menu-body'>
+        <h2>Pizza Vegeroni</h2>
+        <p>Pizza with vegan pepperoni, mushrooms and black olives.</p>
+        <p style={{ display: 'inline-block' }}>$13.99</p>
+        <Button className='btn-menu' width='105px' text='Add to Cart'></Button>
       </div>
     </div>
   )

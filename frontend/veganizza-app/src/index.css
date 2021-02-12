@@ -84,9 +84,9 @@ body {
   background-color: #c72626;
   position: relative;
   border: 0px;
-  font-size: 1.375rem;
+  font-size: 1rem;
   color: white;
-  font-weight: 500;
+  font-weight: 400;
   outline: none;
 }
 
@@ -196,6 +196,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .hot-items-container.item {
@@ -243,9 +244,51 @@ body {
   padding-right: 0;
 }
 
+.menu-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  margin-bottom: 2rem;
+}
+
 .menu-item {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  flex-wrap: nowrap;
+  border: 3px solid #d0d0d0;
+  margin-top: 1rem;
+}
+
+.menu-item h2 {
+  margin: 0;
+  padding-top: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+.menu-item img {
+  max-width: 32%;
+  height: auto;
+}
+
+.menu-item p {
+  margin: 0;
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-left: 0.5rem;
+}
+
+.menu-body {
+  padding: 0;
+  overflow: hidden;
+}
+
+.btn-menu {
+  position: absolute;
+  right: 18px;
+  bottom: 2px;
 }
