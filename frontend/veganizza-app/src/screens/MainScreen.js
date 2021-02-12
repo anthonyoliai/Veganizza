@@ -6,6 +6,7 @@ import Fade from 'react-reveal/Fade'
 import PromoScreen from './PromoScreen'
 import HotItemsScreen from './HotItemsScreen'
 import MenuScreen from './MenuScreen'
+import RestaurantScreen from './RestaurantScreen'
 const MainScreen = () => {
   return (
     <div className='main-screen'>
@@ -20,7 +21,7 @@ const MainScreen = () => {
       <HotItemsScreen></HotItemsScreen>
       <MenuScreen></MenuScreen>
       <Fade bottom>
-        <Steps></Steps>
+        <RestaurantScreen></RestaurantScreen>
       </Fade>
     </div>
   )
