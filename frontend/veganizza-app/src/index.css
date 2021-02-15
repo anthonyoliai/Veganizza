@@ -6,19 +6,31 @@
 
 .navbar {
   padding: 0.2rem 1rem 0.2rem 1rem;
+  position: sticky;
 }
 header {
   float: top;
   position: relative;
-  z-index: 1;
+  z-index: 10;
   background-color: black;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+header img {
+  width: 32px;
+  height: 32px;
+  margin-right: 1rem;
+}
 #header-nav a {
   color: white;
   text-decoration: none;
   margin-right: 52px;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1rem;
 }
 
@@ -199,6 +211,7 @@ body {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  background-color: #ffc5c5;
 }
 
 .hot-items-container.item {
@@ -206,7 +219,7 @@ body {
 }
 
 .topSellersContainer {
-  padding-bottom: 2rem;
+  padding-bottom: 6rem;
 }
 .topSellers {
   text-align: center;
@@ -229,7 +242,6 @@ body {
 .card-text {
   padding-top: 8px;
   padding-bottom: 30px;
-  font-style: italic;
 }
 
 .card-img-top {
@@ -319,7 +331,119 @@ body {
 
 .restaurant-container p {
   margin-bottom: 0.5rem;
-  font-style: italic;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
+}
+.recycle-main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6rem;
+}
+
+.recycle-container {
+  display: flex;
+  justify-content: start;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex-direction: row;
+  margin-right: 4rem;
+}
+.recycle-left-img {
+  display: flex;
+  flex-direction: column;
+  max-width: 33.3%;
+}
+
+.recycle-left-img img {
+  max-width: 100%;
+}
+
+.recycle-right-img {
+  max-width: 70%;
+}
+
+.recycle-right-img img {
+  max-width: 100%;
+}
+
+.recycle-text {
+  flex: 0 0 60%;
+  position: relative;
+  left: 8rem;
+  color: #7a7a7a;
+  font-size: 1.5rem;
+}
+
+.recycle-text h2 {
+  font-weight: 600;
+  font-size: 2rem;
+  color: #e93f3f;
+  max-width: 50%;
+}
+
+.recycle-text p {
+  max-width: 80%;
+}
+
+.blog-container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 12rem;
+}
+
+.blog-item {
+  margin: 0 1rem;
+}
+
+.blog-item .card {
+  border: none;
+}
+
+footer {
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+.footer {
+  padding-bottom: 2rem;
+}
+.footer p {
+  margin: 0;
+  padding: 0;
+  font-size: 0.75rem;
+}
+
+.footer img {
+  margin: 0.5rem;
+}
+
+.form-container {
+  display: flex;
+}
+
+.row {
+  padding-top: 2rem;
+}
+
+.payment-logos {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.payment-logos img {
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.menu-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-text img {
+  margin-right: 1rem;
 }

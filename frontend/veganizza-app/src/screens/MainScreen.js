@@ -7,9 +7,14 @@ import PromoScreen from './PromoScreen'
 import HotItemsScreen from './HotItemsScreen'
 import MenuScreen from './MenuScreen'
 import RestaurantScreen from './RestaurantScreen'
+import RecycleScreen from './RecycleScreen'
+import BlogScreen from './BlogScreen'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
 const MainScreen = () => {
   return (
     <div className='main-screen'>
+      <Header></Header>
       <SplashScreen></SplashScreen>
       <Fade left>
         <WelcomeScreen></WelcomeScreen>
@@ -18,11 +23,22 @@ const MainScreen = () => {
         <Steps></Steps>
       </Fade>
       <PromoScreen></PromoScreen>
-      <HotItemsScreen></HotItemsScreen>
-      <MenuScreen></MenuScreen>
-      <Fade bottom>
+
+      <Fade>
+        <HotItemsScreen></HotItemsScreen>
+        <MenuScreen></MenuScreen>
+      </Fade>
+
+      <Fade>
         <RestaurantScreen></RestaurantScreen>
       </Fade>
+      <Fade>
+        <RecycleScreen></RecycleScreen>
+      </Fade>
+      <Fade>
+        <BlogScreen></BlogScreen>
+      </Fade>
+      <Footer></Footer>
     </div>
   )
 }

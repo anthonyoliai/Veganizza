@@ -1,12 +1,18 @@
 import React from 'react'
 import MenuItem from '../components/MenuItem'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Image } from 'react-bootstrap'
 const MenuScreen = () => {
   return (
     <>
-      <h2 style={{ textAlign: 'center', fontWeight: '600', fontSize: '3rem' }}>
-        OUR MENU
-      </h2>
+      <div className='menu-text'>
+        <Image src='images/icons/pizza_icon.svg'></Image>
+        <h2
+          style={{ textAlign: 'center', fontWeight: '600', fontSize: '3rem' }}
+        >
+          OUR MENU
+        </h2>
+      </div>
+
       <div className='menu-items'>
         <Container fluid>
           <Row>

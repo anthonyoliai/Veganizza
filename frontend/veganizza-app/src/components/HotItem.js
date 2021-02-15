@@ -21,7 +21,7 @@ const HotItem = ({ image, name, description }) => {
           >
             $13.99
           </span>
-          <Card.Text>{description}</Card.Text>
+          <Card.Text style={{ fontStyle: 'italic' }}>{description}</Card.Text>
         </Card.Body>
         <Button className='btn-test' width='120px' text='Add to Cart'></Button>
       </Card>
