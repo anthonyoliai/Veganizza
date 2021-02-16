@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import BlogItem from '../components/BlogItem'
+import { useDispatch, useSelector } from 'react-redux'
+import { listPosts } from '../actions/postActions'
+
 const BlogScreen = () => {
+  const dispatch = useDispatch()
+  const postList = useSelector((state) => state.postList)
+  const { loading, posts, error } = postList
+  useEffect(() => {
+    dispatch(listPosts())
+  }, [dispatch])
   return (
     <>
       <h2
@@ -14,30 +23,14 @@ const BlogScreen = () => {
         Latest News
       </h2>
       <div className='blog-container'>
-        <BlogItem
-          image='/images/about_us.jpg'
-          title='About us'
-          description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.'
-        ></BlogItem>
-        <BlogItem
-          image='/images/our_policy.jpg'
-          title='Our Policy'
-          description='Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-        ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna aliqua.
-      </BlogItem>'
-        ></BlogItem>
-
-        <BlogItem
-          image='/images/user_satisfaction.jpg'
-          title='User Satisfaction'
-          description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.'
-        ></BlogItem>
+        {posts &&
+          posts.map((post) => (
+            <BlogItem
+              image={post.image}
+              title={post.title}
+              description={post.description}
+            ></BlogItem>
+          ))}
       </div>
     </>
   )

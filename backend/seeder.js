@@ -3,6 +3,8 @@ import Product from './models/productModel.js'
 import Promo from './models/promoModel.js'
 import promos from './data/promos.js'
 import products from './data/products.js'
+import Post from './models/postModel.js'
+import posts from './data/posts.js'
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -32,5 +34,18 @@ const importPromos = async () => {
   }
 }
 
+const importPosts = async () => {
+  try {
+    await Post.deleteMany()
+    const createdPosts = await Post.insertMany(posts)
+    console.log('Posts imported')
+    process.exit()
+  } catch (error) {
+    console.log('Error!' + error)
+    process.exit(1)
+  }
+}
+
 importProducts()
 importPromos()
+importPosts()

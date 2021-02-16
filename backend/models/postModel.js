@@ -1,7 +1,11 @@
 import mongoose from 'mongoose'
 const { Schema } = mongoose
 
-const promoSchema = new Schema({
+const postSchema = new Schema({
+  title: {
+    type: String,
+    required: true,
+  },
   description: {
     type: String,
     required: true,
@@ -12,6 +16,6 @@ const promoSchema = new Schema({
   },
 })
 
-const Promo = mongoose.model('Promo', promoSchema)
+const Post = mongoose.model('Post', postSchema)
 
-export default Promo
+export default Post

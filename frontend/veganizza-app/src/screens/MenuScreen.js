@@ -26,16 +26,17 @@ const MenuScreen = () => {
       <div className='menu-items'>
         <Container fluid>
           <Row xs={1} s={2} md={2} lg={3}>
-            {products.map((product, index) => (
-              <Col>
-                <MenuItem
-                  image={product.image}
-                  title={product.name}
-                  price={product.price}
-                  description={product.description}
-                ></MenuItem>
-              </Col>
-            ))}
+            {products &&
+              products.map((product, index) => (
+                <Col>
+                  <MenuItem
+                    image={product.image}
+                    title={product.name}
+                    price={product.price}
+                    description={product.description}
+                  ></MenuItem>
+                </Col>
+              ))}
           </Row>
         </Container>
       </div>

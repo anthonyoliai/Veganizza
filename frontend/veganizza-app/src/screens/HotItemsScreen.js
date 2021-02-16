@@ -17,17 +17,18 @@ const HotItemsScreen = () => {
           </>
         </div>
         <div className='hot-items-container'>
-          {products.map(
-            (product) =>
-              product.topSeller && (
-                <HotItem
-                  style={{ paddingBottom: '50px' }}
-                  image={product.image}
-                  name={product.name}
-                  description={product.description}
-                ></HotItem>
-              )
-          )}
+          {products &&
+            products.map(
+              (product) =>
+                product.topSeller && (
+                  <HotItem
+                    style={{ paddingBottom: '50px' }}
+                    image={product.image}
+                    name={product.name}
+                    description={product.description}
+                  ></HotItem>
+                )
+            )}
         </div>
       </div>
     </>
