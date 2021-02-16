@@ -1,16 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
+import store from './store'
 import reportWebVitals from './reportWebVitals'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
+import { Provider } from 'react-redux'
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <ParallaxProvider>
       <App />
     </ParallaxProvider>
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 )
 

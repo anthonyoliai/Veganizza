@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SplashScreen from './SplashScreen'
 import WelcomeScreen from './WelcomeScreen'
 import Steps from '../components/Steps'
@@ -11,6 +11,7 @@ import RecycleScreen from './RecycleScreen'
 import BlogScreen from './BlogScreen'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+
 const MainScreen = () => {
   return (
     <div className='main-screen'>

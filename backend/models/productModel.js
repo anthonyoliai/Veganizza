@@ -19,6 +19,11 @@ const productSchema = new Schema({
     required: true,
     default: 0,
   },
+  topSeller: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
 })
 
 const Product = mongoose.model('Product', productSchema)

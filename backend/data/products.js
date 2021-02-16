@@ -6,10 +6,11 @@ const products = [
     price: 13.99,
   },
   {
-    name: 'Pizza Vegeron',
+    name: 'Pizza Pancheta',
     description: 'Pan crusted pizza.Mushroom, garlic, and greenpeppers.',
     image: '/images/thumbnail/pizza_pancheta_thumb.jpg',
     price: 16.99,
+    topSeller: true,
   },
   {
     name: 'Pizza Diavlo',
@@ -17,6 +18,7 @@ const products = [
       'Stone oven pizza. Cherry tomatoes, olives, basil and vegan pepperoni.',
     image: '/images/thumbnail/pizza_diavlo_thumb.jpg',
     price: 14.99,
+    topSeller: true,
   },
   {
     name: 'Pizza Margare',
@@ -42,6 +44,7 @@ const products = [
       'Stone oven pizza. Black olives, three colored peppers with cucumber and corn.',
     image: '/images/thumbnail/pizza_jardina_thumb.jpg',
     price: 17.99,
+    topSeller: true,
   },
   {
     name: 'Pizza Tren',

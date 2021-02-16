@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import HotItem from '../components/HotItem'
 import { Image } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import { listProducts } from '../actions/productActions'
 const HotItemsScreen = () => {
+  const productList = useSelector((state) => state.productList)
+  const { products } = productList
   return (
     <>
       <div className='topSellersContainer'>
@@ -13,22 +17,17 @@ const HotItemsScreen = () => {
           </>
         </div>
         <div className='hot-items-container'>
-          <HotItem
-            style={{ paddingBottom: '50px' }}
-            image='/images/pizza_pancheta.jpg'
-            name='Pizza Panchetta'
-            description='Pan crusted pizza. Mushroom, garlic, and green peppers. Homemade tomato sauce.'
-          ></HotItem>
-          <HotItem
-            image='/images/pizza_diavlo.jpg'
-            name='Pizza Diavlo'
-            description='Stone oven pizza. Cherry tomatoes, olives, basil and vegan pepperoni'
-          ></HotItem>
-          <HotItem
-            image='/images/pizza_jardina.jpg'
-            name='Pizza Jardina'
-            description='Stone oven pizza. Black olives, threecolored peppers with cucumber and corn.'
-          ></HotItem>
+          {products.map(
+            (product) =>
+              product.topSeller && (
+                <HotItem
+                  style={{ paddingBottom: '50px' }}
+                  image={product.image}
+                  name={product.name}
+                  description={product.description}
+                ></HotItem>
+              )
+          )}
         </div>
       </div>
     </>
