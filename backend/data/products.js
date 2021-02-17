@@ -7,7 +7,8 @@ const products = [
   },
   {
     name: 'Pizza Pancheta',
-    description: 'Pan crusted pizza.Mushroom, garlic, and greenpeppers.',
+    description:
+      'Pan crusted pizza.Mushroom, garlic, and greenpeppers. Two Vegan cheeses.',
     image: '/images/thumbnail/pizza_pancheta_thumb.jpg',
     price: 16.99,
     topSeller: true,

@@ -5,6 +5,8 @@ import promos from './data/promos.js'
 import products from './data/products.js'
 import Post from './models/postModel.js'
 import posts from './data/posts.js'
+import User from './models/userModel.js'
+import users from './data/users.js'
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -46,6 +48,19 @@ const importPosts = async () => {
   }
 }
 
+const importUsers = async () => {
+  try {
+    await User.deleteMany()
+    const createdUsers = await User.insertMany(users)
+    console.log('Users imported')
+    process.exit()
+  } catch (error) {
+    console.log('Error' + error)
+    process.exit(1)
+  }
+}
+
 importProducts()
 importPromos()
 importPosts()
+importUsers()
