@@ -1,14 +1,15 @@
 import React from 'react'
 
-import Header from './components/Header'
 import MainScreen from './screens/MainScreen'
-import Footer from './components/Footer'
+import LoginScreen from './screens/LoginScreen'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 const App = () => {
   return (
-    <div>
-      <MainScreen></MainScreen>
-    </div>
+    <Router>
+      <Route path='/' component={MainScreen} exact></Route>
+      <Route path='/login' component={LoginScreen}></Route>
+    </Router>
   )
 }
 
