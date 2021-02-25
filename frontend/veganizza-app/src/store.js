@@ -3,6 +3,8 @@ import thunk from 'redux-thunk'
 import { productListReducer, productReducer } from './reducers/productReducers'
 import { promoReducer } from './reducers/promoReducers'
 import { postReducer } from './reducers/postReducers'
+import { cartReducer } from './reducers/cartReducers'
+import { userLoginReducer } from './reducers/userReducers'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 const reducer = combineReducers({
@@ -11,13 +13,31 @@ const reducer = combineReducers({
   product: productReducer,
   promoList: promoReducer,
   postList: postReducer,
+  userLogin: userLoginReducer,
+  cart: cartReducer,
 })
 
-const initialState = {}
 const middleware = [thunk]
+
+//Check if we already logged in and if we have a stored userInfo file.
+const userInfoFromStorage = localStorage.getItem('userInfo')
+  ? JSON.parse(localStorage.getItem('userInfo'))
+  : null
+
+const cartItemsFromStorage = localStorage.getItem('cartItems')
+  ? JSON.parse(localStorage.getItem('cartItems'))
+  : []
+
+const initialState = {
+  userLogin: { userInfo: userInfoFromStorage },
+  cart: {
+    cartItems: cartItemsFromStorage,
+  },
+}
 
 const store = createStore(
   reducer,
+  initialState,
   composeWithDevTools(applyMiddleware(...middleware))
 )
 

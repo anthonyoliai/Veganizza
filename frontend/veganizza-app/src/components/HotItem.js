@@ -1,16 +1,24 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 import Button from '../components/Button'
-const HotItem = ({ image, name, description }) => {
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../actions/cartActions'
+
+const HotItem = ({ product }) => {
+  const dispatch = useDispatch()
+  const dispatchCart = () => {
+    dispatch(addToCart(product, 1))
+  }
+
   return (
     <div>
       <Card
         border='danger'
         style={{ width: '18rem', borderStyle: 'dashed', borderWidth: 2 }}
       >
-        <Card.Img variant='top' src={image} />
+        <Card.Img variant='top' src={product.image} />
         <Card.Body>
-          <Card.Title style={{ display: 'inline' }}>{name}</Card.Title>
+          <Card.Title style={{ display: 'inline' }}>{product.name}</Card.Title>
           <span
             style={{
               fontWeight: '500',
@@ -21,9 +29,16 @@ const HotItem = ({ image, name, description }) => {
           >
             $13.99
           </span>
-          <Card.Text style={{ fontStyle: 'italic' }}>{description}</Card.Text>
+          <Card.Text style={{ fontStyle: 'italic' }}>
+            {product.description}
+          </Card.Text>
         </Card.Body>
-        <Button className='btn-test' width='120px' text='Add to Cart'></Button>
+        <Button
+          className='btn-test'
+          width='120px'
+          text='Add to Cart'
+          clickFunc={dispatchCart}
+        ></Button>
       </Card>
     </div>
   )

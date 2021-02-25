@@ -1,15 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Image } from 'react-bootstrap'
 import Button from '../components/Button'
-const MenuItem = ({ image, title, description, price }) => {
+import Quantity from '../components/Quantity'
+import { addToCart } from '../actions/cartActions'
+import { useDispatch, useSelector } from 'react-redux'
+
+const MenuItem = ({ product }) => {
+  const [quantity, setQuantity] = useState(1)
+  const dispatch = useDispatch()
+
+  const dispatchCart = () => {
+    dispatch(addToCart(product, quantity))
+  }
+
   return (
     <div class='menu-item'>
-      <Image className='menu-image' src={image}></Image>
+      <Image className='menu-image' src={product.image}></Image>
       <div class='menu-body'>
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <p style={{ display: 'inline-block' }}>${price}</p>
-        <Button className='btn-menu' width='105px' text='Add to Cart'></Button>
+        <h2>{product.name}</h2>
+        <p>{product.description}</p>
+        <p style={{ marginBottom: '1rem' }}>${product.price}</p>
+        <div>
+          <Quantity
+            incrementQty={() => setQuantity(quantity + 1)}
+            decrementQty={() =>
+              quantity > 1 ? setQuantity(quantity - 1) : null
+            }
+            quantity={quantity}
+          ></Quantity>
+          <Button
+            className='btn-menu'
+            width='105px'
+            text='Add to Cart'
+            clickFunc={dispatchCart}
+          ></Button>
+        </div>
       </div>
     </div>
   )

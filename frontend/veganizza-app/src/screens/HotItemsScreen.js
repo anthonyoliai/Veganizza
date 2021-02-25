@@ -23,9 +23,7 @@ const HotItemsScreen = () => {
                 product.topSeller && (
                   <HotItem
                     style={{ paddingBottom: '50px' }}
-                    image={product.image}
-                    name={product.name}
-                    description={product.description}
+                    product={product}
                   ></HotItem>
                 )
             )}
