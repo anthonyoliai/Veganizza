@@ -6,7 +6,6 @@ import Message from '../components/Message'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import { addToCart, removeFromCart } from '../actions/cartActions'
-import Quantity from '../components/Quantity'
 const CartScreen = () => {
   const cart = useSelector((state) => state.cart)
   const dispatch = useDispatch()
@@ -16,10 +15,10 @@ const CartScreen = () => {
     <>
       <Header></Header>
       <Row className='cartRow justify-content-center '>
-        <Col md={6}>
+        <Col md={5}>
           <h1 style={{ fontWeight: '500', fontSize: '2rem' }}>SHOPPING CART</h1>
           {cartItems.length === 0 ? (
-            <Message variant='danger'>
+            <Message variant='primary'>
               Your cart is empty! <Link to='/'>Go Back</Link>
             </Message>
           ) : (
@@ -94,11 +93,13 @@ const CartScreen = () => {
                 </span>
               </ListGroup.Item>
               <ListGroup.Item>
-                <Button
-                  width='100%'
-                  text='Proceed to Checkout'
-                  style={{ display: 'block', padding: '1rem' }}
-                ></Button>
+                <Link to='/shipping'>
+                  <Button
+                    width='100%'
+                    text='Proceed to Checkout'
+                    style={{ display: 'block', padding: '1rem' }}
+                  ></Button>
+                </Link>
               </ListGroup.Item>
             </ListGroup>
           </Card>

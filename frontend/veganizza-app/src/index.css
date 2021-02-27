@@ -514,16 +514,55 @@ footer {
 }
 
 .cart-button {
-  border: 1px solid black;
   margin-right: 0.5rem;
   padding: 2px 8px 2px 8px;
 }
 
 .login-container {
-  background-color: #ffc5c5;
-  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.login-container a {
+  color: #c72626;
+}
+.login-container input {
+  border-radius: 0;
+  border: 1px solid gray !important;
 }
 
 header img {
   cursor: pointer;
+}
+
+.cartRow a {
+  text-decoration: none;
+}
+
+.cartRow .card {
+  margin-bottom: 2rem;
+}
+
+.cartRow h3 {
+  font-weight: 500;
+  color: #c72626;
+}
+
+.order-col .list-group-item {
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+}
+
+.shipping-details p {
+  margin: 0;
+}
+
+.shipping-details {
+  margin: 0;
+  padding: 0;
+}
+
+.order-header {
+  color: #c72626;
 }

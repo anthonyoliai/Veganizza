@@ -6,6 +6,7 @@ import { postReducer } from './reducers/postReducers'
 import { cartReducer } from './reducers/cartReducers'
 import { userLoginReducer } from './reducers/userReducers'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import { orderCreateReducer } from './reducers/orderReducers'
 
 const reducer = combineReducers({
   //products state
@@ -15,6 +16,7 @@ const reducer = combineReducers({
   postList: postReducer,
   userLogin: userLoginReducer,
   cart: cartReducer,
+  orderCreate: orderCreateReducer,
 })
 
 const middleware = [thunk]
@@ -28,10 +30,15 @@ const cartItemsFromStorage = localStorage.getItem('cartItems')
   ? JSON.parse(localStorage.getItem('cartItems'))
   : []
 
+const shippingAddressFromStorage = localStorage.getItem('shippingAddress')
+  ? JSON.parse(localStorage.getItem('shippingAddress'))
+  : {}
+
 const initialState = {
   userLogin: { userInfo: userInfoFromStorage },
   cart: {
     cartItems: cartItemsFromStorage,
+    shippingAddress: shippingAddressFromStorage,
   },
 }
 

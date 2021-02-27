@@ -1,6 +1,13 @@
-import { ADD_CART, REMOVE_CART } from '../constants/cartConstants'
+import {
+  ADD_CART,
+  REMOVE_CART,
+  SAVE_SHIPPING_ADDRESS,
+} from '../constants/cartConstants'
 
-export const cartReducer = (state = { cartItems: [] }, action) => {
+export const cartReducer = (
+  state = { shippingAddress: {}, cartItems: [] },
+  action
+) => {
   function compare(a, b) {
     if (a.product._id < b.product._id) {
       return -1
@@ -25,13 +32,20 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       }
 
       return {
+        ...state,
         cartItems: [...state.cartItems, item].sort(compare),
       }
     case REMOVE_CART:
       return {
+        ...state,
         cartItems: state.cartItems.filter(
           (cartItem) => cartItem.product !== action.payload.product
         ),
+      }
+    case SAVE_SHIPPING_ADDRESS:
+      return {
+        ...state,
+        shippingAddress: action.payload,
       }
     default:
       return state
