@@ -69,41 +69,43 @@ const CartScreen = () => {
             </ListGroup>
           )}
         </Col>
-        <Col md={3}>
-          <Card>
-            <ListGroup variant='flush'>
-              <ListGroup.Item>
-                <h2 style={{ marginBottom: '1rem' }}>
-                  SUBTOTAL ({cartItems.reduce((acc, item) => acc + item.qty, 0)}
-                  ) ITEMS
-                </h2>
-                {cartItems.map((item) => (
-                  <p style={{ fontWeight: '500' }}>
-                    {item.product.name} {''} x{item.qty}
-                  </p>
-                ))}
-                <span style={{ fontWeight: '500' }}>
-                  TOTAL: $
-                  {cartItems
-                    .reduce(
-                      (acc, item) => acc + item.qty * item.product.price,
-                      0
-                    )
-                    .toFixed(2)}
-                </span>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Link to='/shipping'>
-                  <Button
-                    width='100%'
-                    text='Proceed to Checkout'
-                    style={{ display: 'block', padding: '1rem' }}
-                  ></Button>
-                </Link>
-              </ListGroup.Item>
-            </ListGroup>
-          </Card>
-        </Col>
+        {cartItems.length > 0 && (
+          <Col md={3}>
+            <Card>
+              <ListGroup variant='flush'>
+                <ListGroup.Item>
+                  <h2 style={{ marginBottom: '1rem' }}>
+                    SUBTOTAL (
+                    {cartItems.reduce((acc, item) => acc + item.qty, 0)}) ITEMS
+                  </h2>
+                  {cartItems.map((item) => (
+                    <p style={{ fontWeight: '500' }}>
+                      {item.product.name} {''} x{item.qty}
+                    </p>
+                  ))}
+                  <span style={{ fontWeight: '500' }}>
+                    TOTAL: $
+                    {cartItems
+                      .reduce(
+                        (acc, item) => acc + item.qty * item.product.price,
+                        0
+                      )
+                      .toFixed(2)}
+                  </span>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Link to='/shipping'>
+                    <Button
+                      width='100%'
+                      text='Proceed to Checkout'
+                      style={{ display: 'block', padding: '1rem' }}
+                    ></Button>
+                  </Link>
+                </ListGroup.Item>
+              </ListGroup>
+            </Card>
+          </Col>
+        )}
       </Row>
     </>
   )

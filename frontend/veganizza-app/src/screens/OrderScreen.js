@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Card } from 'react-bootstrap'
 import Message from '../components/Message'
 import Header from '../components/Header'
-import { createOrder } from '../actions/orderActions'
+import { createOrder, resetOrder } from '../actions/orderActions'
+import { resetCart } from '../actions/cartActions'
 import { PayPalButton } from 'react-paypal-button-v2'
 
 const OrderScreen = ({ history }) => {
@@ -16,38 +16,24 @@ const OrderScreen = ({ history }) => {
   const { userInfo } = userLogin
   const dispatch = useDispatch()
   const { cartItems, shippingAddress } = cart
-  const [sdkReady, setSdkReady] = useState(false)
 
   console.log(shippingAddress)
   const addDecimals = (number) => (Math.round(number * 100) / 100).toFixed(2)
   console.log(userLogin)
   if (!userInfo) history.push('/login')
 
-  const addPaypalScript = async () => {
-    const { data: clientId } = await axios.get('/api/config/paypal')
-    const script = document.createElement('script')
-    script.type = 'text/javascript'
-    script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
-    script.async = true
-    script.onload = () => {
-      setSdkReady(true)
-    }
-    document.body.appendChild(script)
-  }
-
   useEffect(() => {
-    if (!window.PAYPAL) {
-    } else {
-      setSdkReady(true)
+    if (success) {
+      dispatch(resetOrder())
+      history.push(`/order/${order._id}`)
     }
-  }, [dispatch, cartItems, order])
+  }, [dispatch, cartItems, orderCreate])
 
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult)
 
     dispatch(
       createOrder({
-        user: userInfo,
         orderItems: cart.cartItems,
         shippingAddress: cart.shippingAddress,
         itemsPrice: cart.itemsPrice,
@@ -57,7 +43,7 @@ const OrderScreen = ({ history }) => {
         paidAt: Date.now(),
       })
     )
-    history.push(`/order/${order._id}`)
+    dispatch(resetCart())
   }
 
   cart.itemsPrice = addDecimals(
@@ -75,13 +61,13 @@ const OrderScreen = ({ history }) => {
       <Header></Header>
       <Row className='cartRow justify-content-center '>
         <Col md={4}>
-          <h3>ORDER ITEMS</h3>
           {cartItems.length === 0 ? (
             <Message variant='primary'>
               Your cart is empty! <Link to='/'>Go Back</Link>
             </Message>
           ) : (
             <ListGroup variant='flush'>
+              <h3>ITEMS OF CHOICE</h3>
               {cartItems.map((item, index) => (
                 <ListGroup.Item key={item.product}>
                   <Row className='align-items-center'>
@@ -110,39 +96,41 @@ const OrderScreen = ({ history }) => {
             </ListGroup>
           )}
         </Col>
-        <Col className='order-col' md={3}>
-          <Card>
-            <ListGroup variant='flush'>
-              <ListGroup.Item className='order-header'>
-                <h3>ORDER SUMMARY</h3>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Items</Col>
-                  <Col>${cart.itemsPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Delivery Fee</Col>
-                  <Col>${cart.shippingPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row style={{ fontWeight: '600' }}>
-                  <Col>Total</Col>
-                  <Col>${cart.totalPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <PayPalButton
-                  amount={cart.totalPrice}
-                  onSuccess={successPaymentHandler}
-                ></PayPalButton>
-              </ListGroup.Item>
-            </ListGroup>
-          </Card>
-        </Col>
+        {cartItems.length > 0 && (
+          <Col className='order-col' md={3}>
+            <Card>
+              <ListGroup variant='flush'>
+                <ListGroup.Item className='order-header'>
+                  <h3>ORDER SUMMARY</h3>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Items</Col>
+                    <Col>${cart.itemsPrice}</Col>
+                  </Row>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Delivery Fee</Col>
+                    <Col>${cart.shippingPrice}</Col>
+                  </Row>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Row style={{ fontWeight: '600' }}>
+                    <Col>Total</Col>
+                    <Col>${cart.totalPrice}</Col>
+                  </Row>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <PayPalButton
+                    amount={cart.totalPrice}
+                    onSuccess={successPaymentHandler}
+                  ></PayPalButton>
+                </ListGroup.Item>
+              </ListGroup>
+            </Card>
+          </Col>
+        )}
       </Row>
     </>
   )

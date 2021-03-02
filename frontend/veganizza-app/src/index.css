@@ -548,6 +548,7 @@ header img {
 .cartRow h3 {
   font-weight: 500;
   color: #c72626;
+  margin: 1rem;
 }
 
 .order-col .list-group-item {
@@ -565,4 +566,8 @@ header img {
 
 .order-header {
   color: #c72626;
+}
+
+.single-order .card {
+  margin-bottom: 0;
 }

@@ -1,5 +1,6 @@
 import {
   ADD_CART,
+  CART_RESET,
   REMOVE_CART,
   SAVE_SHIPPING_ADDRESS,
 } from '../constants/cartConstants'
@@ -36,4 +37,12 @@ export const saveShippingAddress = (data) => (dispatch) => {
     },
   })
   localStorage.setItem('shippingAddress', JSON.stringify(data))
+}
+
+export const resetCart = () => (dispatch, getState) => {
+  dispatch({
+    type: CART_RESET,
+  })
+
+  localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
 }

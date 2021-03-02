@@ -27,6 +27,9 @@ app.get('/api/config/paypal', (req, res) =>
   res.send(process.env.PAYPAL_CLIENT_ID)
 )
 
+const __dirname = path.resolve()
+app.use('/animations', express.static(path.join(__dirname, '/animations')))
+
 const PORT = process.env.PORT || 5000
 app.listen(PORT)
 

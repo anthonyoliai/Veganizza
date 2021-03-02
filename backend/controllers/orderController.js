@@ -7,10 +7,8 @@ import Order from '../models/orderModel.js'
 
 const addOrderItems = asyncHandler(async (req, res) => {
   const {
-    user,
     orderItems,
     shippingAddress,
-    paymentMethod,
     itemsPrice,
     shippingPrice,
     totalPrice,
@@ -20,13 +18,11 @@ const addOrderItems = asyncHandler(async (req, res) => {
   if (orderItems && orderItems.length === 0) {
     res.status(400)
     throw new Error('No order items')
-    return
   } else {
     const order = new Order({
       orderItems,
-      user: user._id,
+      user: req.user._id,
       shippingAddress,
-      paymentMethod,
       itemsPrice,
       shippingPrice,
       totalPrice,
@@ -37,4 +33,18 @@ const addOrderItems = asyncHandler(async (req, res) => {
   }
 })
 
-export { addOrderItems }
+const getOrderById = asyncHandler(async (req, res) => {
+  const order = await Order.findById(req.params.id).populate(
+    'user',
+    'name email'
+  )
+
+  if (order) {
+    res.json(order)
+  } else {
+    res.status(404)
+    throw new Error('Order not found')
+  }
+})
+
+export { addOrderItems, getOrderById }
