@@ -44,7 +44,7 @@ export const orderAnimationReducer = (state = {}, action) => {
     case ORDER_ANIMATION_REQUEST:
       return { loading: true }
     case ORDER_ANIMATION_SUCCESS:
-      return { loading: false, order: action.payload }
+      return { loading: false, animation: action.payload }
     case ORDER_ANIMATION_FAIL:
       return { loading: false, error: action.payload }
     default:

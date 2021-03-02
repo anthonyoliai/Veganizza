@@ -93,7 +93,7 @@ export const getAnimations = (animationName) => async (dispatch) => {
   try {
     dispatch({ type: ORDER_ANIMATION_REQUEST })
 
-    const { data } = await axios.get(`/uploads/${animationName}`)
+    const { data } = await axios.get(`/animations/${animationName}`)
     dispatch({ type: ORDER_ANIMATION_SUCCESS, payload: data })
   } catch (error) {
     dispatch({

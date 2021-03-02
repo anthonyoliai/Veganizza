@@ -555,19 +555,19 @@ header img {
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
 }
 
-.shipping-details p {
-  margin: 0;
-}
-
-.shipping-details {
-  margin: 0;
-  padding: 0;
-}
-
 .order-header {
   color: #c72626;
 }
 
 .single-order .card {
   margin-bottom: 0;
+}
+
+.single-order .alert {
+  margin-bottom: 0;
+}
+
+.animation {
+  margin: 0;
+  padding: 0;
 }

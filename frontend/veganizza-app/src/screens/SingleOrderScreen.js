@@ -4,20 +4,37 @@ import { Row, Col, ListGroup, Image, Form, Card } from 'react-bootstrap'
 import Header from '../components/Header'
 import { getOrderById, getAnimations } from '../actions/orderActions'
 import Message from '../components/Message'
+import Lottie from 'react-lottie'
 
 const SingleOrderScreen = ({ history, match }) => {
   const userLogin = useSelector((state) => state.userLogin)
   const orderGet = useSelector((state) => state.orderGet)
 
+  const orderAnimation = useSelector((state) => state.orderAnimation)
+  const { animation, error: animError } = orderAnimation
+  const DELIVERY_TIME = 30 * 60000
   const { order, loading, error } = orderGet
   const { userInfo } = userLogin
   const dispatch = useDispatch()
-  console.log(order)
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animation,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  }
+
   if (!userInfo) history.push('/login')
 
   useEffect(() => {
     dispatch(getAnimations('3075-delivery-van.json'))
     dispatch(getOrderById(match.params.id))
+    const interval = setInterval(() => {
+      dispatch(getOrderById(match.params.id))
+    }, 10000)
+    return () => clearInterval(interval)
   }, [])
   return (
     <>
@@ -30,8 +47,8 @@ const SingleOrderScreen = ({ history, match }) => {
               <h3>ITEMS OF CHOICE</h3>
               {order.orderItems.map((item, index) => (
                 <ListGroup.Item key={item.product}>
-                  <Row className='align-items-center'>
-                    <Col md={1} style={{ padding: '0' }}>
+                  <Row className='align-items-center' align='center'>
+                    <Col md={2}>
                       <Image
                         src={item.product.image}
                         alt={item.product.name}
@@ -47,13 +64,40 @@ const SingleOrderScreen = ({ history, match }) => {
               ))}
               <h3 style={{ marginTop: '1rem' }}>SHIPPING DETAILS</h3>
               <ListGroup.Item className='shipping-details'>
-                <p>
-                  Address: {''}
-                  {order.shippingAddress.address}, {order.shippingAddress.city},{' '}
-                  {order.shippingAddress.postalCode},{' '}
-                  {order.shippingAddress.country}
-                </p>
+                <Row>
+                  <Col md={12}>
+                    <p>
+                      Address: {''}
+                      {order.shippingAddress.address},{' '}
+                      {order.shippingAddress.city},{' '}
+                      {order.shippingAddress.postalCode},{' '}
+                      {order.shippingAddress.country}
+                    </p>
+                  </Col>
+                </Row>
               </ListGroup.Item>
+              <h3 style={{ marginTop: '1rem' }}>ORDER STATUS</h3>
+              <ListGroup.Item>
+                <Row>
+                  <Col md={12}>
+                    <p style={{ fontWeight: '500' }}>
+                      {order.isDelivered
+                        ? 'Delivered'
+                        : `Estimated time of delivery: ${String(
+                            new Date(new Date().getTime() + DELIVERY_TIME)
+                          )
+                            .split(' ')
+                            .slice(0, 5)
+                            .join(' ')}`}
+                    </p>
+                  </Col>
+                </Row>
+              </ListGroup.Item>
+              {!order.isDelivered && (
+                <ListGroup.Item className='animation'>
+                  <Lottie options={defaultOptions} />
+                </ListGroup.Item>
+              )}
             </ListGroup>
           </Col>
 
@@ -81,13 +125,13 @@ const SingleOrderScreen = ({ history, match }) => {
                     <Col>${order.totalPrice}</Col>
                   </Row>
                 </ListGroup.Item>
+                {order.isPaid ? (
+                  <Message variant='success'> Paid on {order.paidAt}</Message>
+                ) : (
+                  <Message variant='danger'>Not paid.</Message>
+                )}
               </ListGroup>
             </Card>
-            {order.isPaid ? (
-              <Message variant='success'> Paid on {order.paidAt}</Message>
-            ) : (
-              <Message variant='danger'>Not paid.</Message>
-            )}
           </Col>
         </Row>
       )}
