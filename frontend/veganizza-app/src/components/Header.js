@@ -21,11 +21,16 @@ const Header = () => {
             <Nav.Link id='header-link'>Menu</Nav.Link>
             <Nav.Link id='header-link'>Delivery</Nav.Link>
             {userInfo ? (
-              <LinkContainer to='/'>
-                <Nav.Link onClick={logoutHandler} id='header-link'>
-                  Logout
-                </Nav.Link>
-              </LinkContainer>
+              <>
+                <LinkContainer to='/myorders'>
+                  <Nav.Link id='header-link'>My Orders</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to='/'>
+                  <Nav.Link onClick={logoutHandler} id='header-link'>
+                    Logout
+                  </Nav.Link>
+                </LinkContainer>
+              </>
             ) : (
               <LinkContainer to='/login'>
                 <Nav.Link id='header-link'>Login</Nav.Link>
@@ -38,8 +43,8 @@ const Header = () => {
 
       <div className='cart-area'>
         {userInfo && (
-          <p style={{ color: 'white', fontStyle: 'italic' }}>
-            Welcome, {userInfo.username}
+          <p style={{ color: 'white', fontWeight: '500' }}>
+            Welcome {userInfo.username}
           </p>
         )}
         <LinkContainer to='/cart'>

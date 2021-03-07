@@ -9,4 +9,12 @@ const getPosts = asyncHandler(async (req, res) => {
   }
 })
 
-export { getPosts }
+const getPost = asyncHandler(async (req, res) => {
+  const post = await Post.findById(req.params.id)
+  if (post) res.json(post)
+  else {
+    throw new Error('Cannot find post')
+  }
+})
+
+export { getPosts, getPost }

@@ -14,7 +14,7 @@ const CartScreen = () => {
   return (
     <>
       <Header></Header>
-      <Row className='cartRow justify-content-center '>
+      <Row className='cartRow justify-content-center cartScreen'>
         <Col md={5}>
           <h1 style={{ fontWeight: '500', fontSize: '2rem' }}>SHOPPING CART</h1>
           {cartItems.length === 0 ? (
@@ -31,11 +31,14 @@ const CartScreen = () => {
                         src={item.product.image}
                         alt={item.product.name}
                         fluid
-                        rounded
                       ></Image>
                     </Col>
-                    <Col md={2}>{item.product.name}</Col>
-                    <Col md={2}>${item.product.price}</Col>
+                    <Col md={2} style={{ fontWeight: '500' }}>
+                      {item.product.name}
+                    </Col>
+                    <Col md={2} style={{ fontWeight: '500' }}>
+                      ${item.product.price}
+                    </Col>
                     <Col md={2} align='center'>
                       <button
                         className='button cart-button'
@@ -80,7 +83,7 @@ const CartScreen = () => {
                   </h2>
                   {cartItems.map((item) => (
                     <p style={{ fontWeight: '500' }}>
-                      {item.product.name} {''} x{item.qty}
+                      {item.product.name} {''} x{item.qty} {''}{' '}
                     </p>
                   ))}
                   <span style={{ fontWeight: '500' }}>

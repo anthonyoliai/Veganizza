@@ -3,32 +3,42 @@ import HotItem from '../components/HotItem'
 import { Image } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { listProducts } from '../actions/productActions'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
 const HotItemsScreen = () => {
   const productList = useSelector((state) => state.productList)
-  const { products } = productList
+  const { products, loading, error } = productList
   return (
     <>
-      <div className='topSellersContainer'>
-        <div className='topSellers'>
-          <Image src='images/star.svg'></Image>
-          <>
-            <h2 style={{ color: '#C72626', paddingRight: '15px' }}>TOP</h2>{' '}
-            <h2>SELLERS</h2>
-          </>
-        </div>
-        <div className='hot-items-container'>
-          {products &&
-            products.map(
-              (product) =>
-                product.topSeller && (
-                  <HotItem
-                    style={{ paddingBottom: '50px' }}
-                    product={product}
-                  ></HotItem>
-                )
-            )}
-        </div>
-      </div>
+      {loading ? (
+        <Loader></Loader>
+      ) : error ? (
+        <Message variant='danger'>{error}</Message>
+      ) : (
+        <>
+          <div className='topSellersContainer'>
+            <div className='topSellers'>
+              <Image src='images/star.svg'></Image>
+              <>
+                <h2 style={{ color: '#C72626', paddingRight: '15px' }}>TOP</h2>{' '}
+                <h2>SELLERS</h2>
+              </>
+            </div>
+            <div className='hot-items-container'>
+              {products &&
+                products.map(
+                  (product) =>
+                    product.topSeller && (
+                      <HotItem
+                        style={{ paddingBottom: '50px' }}
+                        product={product}
+                      ></HotItem>
+                    )
+                )}
+            </div>
+          </div>
+        </>
+      )}
     </>
   )
 }

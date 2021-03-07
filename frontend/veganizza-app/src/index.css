@@ -55,7 +55,6 @@ body {
   color: white;
   height: 100%;
   width: 100%;
-  margin-bottom: 151px;
 }
 
 .splash-text {
@@ -111,11 +110,17 @@ body {
 
 .main-welcome {
   position: relative;
+  z-index: 10;
   padding-left: 87px;
-  margin-bottom: 50px;
+  margin-bottom: 12rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 60'%3E%3Cg fill-opacity='0.17'%3E%3Crect fill='%23ffffff' width='11' height='11'/%3E%3Crect fill='%23fffcfb' x='10' width='11' height='11'/%3E%3Crect fill='%23fff9f8' y='10' width='11' height='11'/%3E%3Crect fill='%23fff6f4' x='20' width='11' height='11'/%3E%3Crect fill='%23fff3f1' x='10' y='10' width='11' height='11'/%3E%3Crect fill='%23fff0ed' y='20' width='11' height='11'/%3E%3Crect fill='%23ffeee9' x='30' width='11' height='11'/%3E%3Crect fill='%23ffebe6' x='20' y='10' width='11' height='11'/%3E%3Crect fill='%23ffe8e2' x='10' y='20' width='11' height='11'/%3E%3Crect fill='%23ffe5df' y='30' width='11' height='11'/%3E%3Crect fill='%23ffe2db' x='40' width='11' height='11'/%3E%3Crect fill='%23ffdfd8' x='30' y='10' width='11' height='11'/%3E%3Crect fill='%23ffdcd4' x='20' y='20' width='11' height='11'/%3E%3Crect fill='%23ffd9d1' x='10' y='30' width='11' height='11'/%3E%3Crect fill='%23ffd6cd' y='40' width='11' height='11'/%3E%3Crect fill='%23ffd3ca' x='50' width='11' height='11'/%3E%3Crect fill='%23ffd1c6' x='40' y='10' width='11' height='11'/%3E%3Crect fill='%23ffcec3' x='30' y='20' width='11' height='11'/%3E%3Crect fill='%23ffcbbf' x='20' y='30' width='11' height='11'/%3E%3Crect fill='%23ffc8bc' x='10' y='40' width='11' height='11'/%3E%3Crect fill='%23ffc5b9' y='50' width='11' height='11'/%3E%3Crect fill='%23ffc2b5' x='60' width='11' height='11'/%3E%3Crect fill='%23ffbfb2' x='50' y='10' width='11' height='11'/%3E%3Crect fill='%23ffbcae' x='40' y='20' width='11' height='11'/%3E%3Crect fill='%23ffb9ab' x='30' y='30' width='11' height='11'/%3E%3Crect fill='%23ffb6a8' x='20' y='40' width='11' height='11'/%3E%3Crect fill='%23ffb3a4' x='10' y='50' width='11' height='11'/%3E%3Crect fill='%23ffb0a1' x='70' width='11' height='11'/%3E%3Crect fill='%23ffad9d' x='60' y='10' width='11' height='11'/%3E%3Crect fill='%23ffab9a' x='50' y='20' width='11' height='11'/%3E%3Crect fill='%23ffa897' x='40' y='30' width='11' height='11'/%3E%3Crect fill='%23ffa594' x='30' y='40' width='11' height='11'/%3E%3Crect fill='%23ffa290' x='20' y='50' width='11' height='11'/%3E%3Crect fill='%23ff9f8d' x='80' width='11' height='11'/%3E%3Crect fill='%23ff9c8a' x='70' y='10' width='11' height='11'/%3E%3Crect fill='%23ff9986' x='60' y='20' width='11' height='11'/%3E%3Crect fill='%23ff9683' x='50' y='30' width='11' height='11'/%3E%3Crect fill='%23ff9380' x='40' y='40' width='11' height='11'/%3E%3Crect fill='%23ff907d' x='30' y='50' width='11' height='11'/%3E%3Crect fill='%23fe8d79' x='90' width='11' height='11'/%3E%3Crect fill='%23fe8976' x='80' y='10' width='11' height='11'/%3E%3Crect fill='%23fd8673' x='70' y='20' width='11' height='11'/%3E%3Crect fill='%23fc8370' x='60' y='30' width='11' height='11'/%3E%3Crect fill='%23fc806d' x='50' y='40' width='11' height='11'/%3E%3Crect fill='%23fb7d69' x='40' y='50' width='11' height='11'/%3E%3Crect fill='%23fa7a66' x='90' y='10' width='11' height='11'/%3E%3Crect fill='%23fa7763' x='80' y='20' width='11' height='11'/%3E%3Crect fill='%23f97360' x='70' y='30' width='11' height='11'/%3E%3Crect fill='%23f8705d' x='60' y='40' width='11' height='11'/%3E%3Crect fill='%23f76d5a' x='50' y='50' width='11' height='11'/%3E%3Crect fill='%23f66a57' x='90' y='20' width='11' height='11'/%3E%3Crect fill='%23f66653' x='80' y='30' width='11' height='11'/%3E%3Crect fill='%23f56350' x='70' y='40' width='11' height='11'/%3E%3Crect fill='%23f45f4d' x='60' y='50' width='11' height='11'/%3E%3Crect fill='%23f35c4a' x='90' y='30' width='11' height='11'/%3E%3Crect fill='%23f25847' x='80' y='40' width='11' height='11'/%3E%3Crect fill='%23f15544' x='70' y='50' width='11' height='11'/%3E%3Crect fill='%23f05141' x='90' y='40' width='11' height='11'/%3E%3Crect fill='%23ef4d3e' x='80' y='50' width='11' height='11'/%3E%3Crect fill='%23ee493b' x='90' y='50' width='11' height='11'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  padding-top: 12rem;
 }
 
 .main-welcome h3 {
@@ -127,10 +132,11 @@ body {
 
 .main-welcome p {
   color: #7a7a7a;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
   text-align: justify;
   text-justify: inter-word;
   font-size: 1rem;
+  font-weight: 500;
 }
 
 .steps-container {
@@ -158,7 +164,7 @@ body {
 
 .bg-stripe {
   position: relative;
-  z-index: -1;
+  z-index: 1;
   bottom: 165px;
   display: inline-block;
   width: 100%;
@@ -167,9 +173,6 @@ body {
   background-color: #ffc5c5;
 }
 
-.promo-carousel {
-  margin-bottom: 50px;
-}
 .promo-carousel img {
   max-width: 100%;
   max-height: 100%;
@@ -211,7 +214,6 @@ body {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-  background-color: #ffc5c5;
 }
 
 .hot-items-container.item {
@@ -219,7 +221,9 @@ body {
 }
 
 .topSellersContainer {
+  padding-top: 6rem;
   padding-bottom: 6rem;
+  background-color: #ffffff;
 }
 .topSellers {
   text-align: center;
@@ -245,8 +249,8 @@ body {
 }
 
 .card-img-top {
-  width: 284px;
-  height: 213px;
+  width: 100%;
+  height: 95%;
   margin-bottom: 15px;
 }
 
@@ -257,7 +261,6 @@ body {
   text-align: left;
   padding-right: 0;
 }
-
 .menu-items {
   display: flex;
   flex-direction: row;
@@ -506,16 +509,17 @@ footer {
 }
 
 .cartRow i {
-  color: white;
-}
-
-.cartRow button {
-  background-color: #c72626;
+  color: black;
 }
 
 .cart-button {
   margin-right: 0.5rem;
-  padding: 2px 8px 2px 8px;
+  padding: 6px 12px 6px 12px;
+  background-color: black;
+}
+
+.cart-button {
+  font-size: 1.2rem;
 }
 
 .login-container {
@@ -551,6 +555,9 @@ header img {
   margin: 1rem;
 }
 
+.order-col {
+  text-align: center;
+}
 .order-col .list-group-item {
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
 }
@@ -565,9 +572,50 @@ header img {
 
 .single-order .alert {
   margin-bottom: 0;
+  border-radius: 0;
+  padding-left: 0.5rem;
 }
 
 .animation {
   margin: 0;
   padding: 0;
+}
+
+.my-order-container {
+  margin-top: 4rem;
+}
+
+.my-order-container h3 {
+  font-weight: 600;
+}
+.table-sm th {
+  color: #c72626;
+}
+
+.id-container {
+  cursor: pointer;
+}
+
+.id-container:hover {
+  color: #c72626;
+}
+
+.cartScreen .list-group-item {
+  border: none;
+}
+
+.table-sm {
+  text-align: center;
+}
+
+.table-sm td {
+  vertical-align: middle;
+}
+.id-container {
+  font-weight: 500;
+}
+
+.order-detail {
+  padding: 0.75rem;
+  font-weight: 500;
 }
