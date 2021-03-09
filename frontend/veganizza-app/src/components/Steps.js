@@ -7,7 +7,7 @@ const Steps = () => {
       <div className='stripe'>
         <div style={{ position: 'relative', zIndex: '2' }}>
           <Image className='step-one-img' src='images/step_one.svg'></Image>
-          <p>Choose toppings of your liking!</p>
+          <p>Choose any pizza of your liking!</p>
         </div>
         <div style={{ position: 'relative', zIndex: '2' }}>
           <Image className='step-one-img' src='images/step_two.svg'></Image>

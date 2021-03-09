@@ -17,7 +17,7 @@ const MainScreen = () => {
     <div className='main-screen'>
       <Header></Header>
       <SplashScreen></SplashScreen>
-      <Fade left>
+      <Fade bottom>
         <WelcomeScreen></WelcomeScreen>
       </Fade>
       <Fade bottom>
@@ -30,12 +30,8 @@ const MainScreen = () => {
         <MenuScreen></MenuScreen>
       </Fade>
 
-      <Fade>
-        <RestaurantScreen></RestaurantScreen>
-      </Fade>
-      <Fade>
-        <RecycleScreen></RecycleScreen>
-      </Fade>
+      <RestaurantScreen></RestaurantScreen>
+      <RecycleScreen></RecycleScreen>
       <Fade>
         <BlogScreen></BlogScreen>
       </Fade>

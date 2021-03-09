@@ -48,7 +48,6 @@ const getOrderById = asyncHandler(async (req, res) => {
 })
 
 const getMyOrders = asyncHandler(async (req, res) => {
-  console.log(req.user._id)
   const orders = await Order.find({ user: req.user._id })
   res.json(orders)
 })

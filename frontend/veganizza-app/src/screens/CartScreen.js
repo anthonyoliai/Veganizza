@@ -60,6 +60,7 @@ const CartScreen = () => {
                       <button
                         style={{
                           border: 'none',
+                          backgroundColor: 'white',
                         }}
                         onClick={() => dispatch(removeFromCart(item.product))}
                       >

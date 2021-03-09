@@ -3,23 +3,31 @@ import { Navbar, Nav, Image } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../actions/userActions'
+import Bounce from 'react-reveal/Bounce'
 const Header = () => {
   const userLogin = useSelector((state) => state.userLogin)
   const dispatch = useDispatch()
   const { userInfo } = userLogin
-
+  const cart = useSelector((state) => state.cart)
+  const { cartItems } = cart
+  useEffect(() => {}, [dispatch, cartItems])
   const logoutHandler = () => dispatch(logout())
+
+  const getTotalQty = () => {
+    let qty = 0
+    cartItems.map((item) => (qty += item.qty))
+    return qty
+  }
   return (
     <header>
       <>
-        <Navbar fixed='top'>
-          <Nav id='header-nav'>
-            <LinkContainer to='/'>
-              <Nav.Link id='header-link'>Home</Nav.Link>
-            </LinkContainer>
+        <LinkContainer to='/'>
+          <Image className='logo-img' src='images/pizza_logo.svg'></Image>
+        </LinkContainer>
 
+        <Navbar className='navbar-container'>
+          <Nav id='header-nav'>
             <Nav.Link id='header-link'>Menu</Nav.Link>
-            <Nav.Link id='header-link'>Delivery</Nav.Link>
             {userInfo ? (
               <>
                 <LinkContainer to='/myorders'>
@@ -48,7 +56,16 @@ const Header = () => {
           </p>
         )}
         <LinkContainer to='/cart'>
-          <Image src='images/icons/cart.svg'></Image>
+          <div className='header-icon-container'>
+            <Image src='images/icons/cart.svg'></Image>
+            {cartItems.length > 0 && (
+              <Bounce>
+                <div className='cart-items-count'>
+                  <span>{getTotalQty()}</span>
+                </div>
+              </Bounce>
+            )}
+          </div>
         </LinkContainer>
       </div>
     </header>

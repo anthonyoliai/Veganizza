@@ -19,9 +19,10 @@ const MenuItem = ({ product }) => {
       <div class='menu-body'>
         <h2>{product.name}</h2>
         <p>{product.description}</p>
-        <p style={{ marginBottom: '1rem' }}>${product.price}</p>
-        <div>
+        <p>${product.price}</p>
+        <div className='qty-wrapper'>
           <Quantity
+            className='single-qty'
             incrementQty={() => setQuantity(quantity + 1)}
             decrementQty={() =>
               quantity > 1 ? setQuantity(quantity - 1) : null
@@ -30,7 +31,6 @@ const MenuItem = ({ product }) => {
           ></Quantity>
           <Button
             className='btn-menu'
-            width='105px'
             text='Add to Cart'
             clickFunc={dispatchCart}
           ></Button>

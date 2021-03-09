@@ -13,15 +13,18 @@ const Footer = () => {
               <Image src='/images/icons/simple-icons_deliveroo.svg'></Image>
               <Image src='/images/icons/simple-icons_ubereats.svg'></Image>
               <h5>PRIVACY</h5>
-              <p>Privacy Policy</p>
-              <p>Terms of Service</p>
-              <p>My Personal Data</p>
+              <a href='/'>Privacy Policy</a>
+              <a href='/'>Terms of Service</a>
+              <a href='/'>My Personal Data</a>
             </div>
           </Col>
           <Col>
             <div className='footer'>
               <h5 style={{ marginTop: '1rem' }}>CONTACT US</h5>
-              <p>Email: veganizza@gmail.com</p>
+              <p className='email-footer'>
+                Email:{' '}
+                <a href='mailto: veganizza@gmail.com'>veganizza@gmail.com</a>
+              </p>
               <p>Phone: +3169332243</p>
               <p>Address: </p>
               <p>65 Rue Saint-Dominique</p>
