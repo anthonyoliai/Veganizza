@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../components/FormContainer'
 import { register } from '../actions/userActions'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-
+import Header from '../components/Header'
+import Button from '../components/Button'
 const RegisterScreen = ({ location, history }) => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
@@ -32,14 +33,24 @@ const RegisterScreen = ({ location, history }) => {
   }
   return (
     <>
+      <Header></Header>
       {loading ? (
         <Loader></Loader>
       ) : error ? (
         <Message variant='danger'>{error}</Message>
       ) : (
-        <>
+        <div className='login-container'>
           <FormContainer>
-            <h1>Sign up</h1>
+            <h1
+              style={{
+                textAlign: 'center',
+                marginTop: '12rem',
+                fontWeight: '600',
+              }}
+            >
+              <span style={{ color: '#c72626' }}>Sign</span>up
+            </h1>
+
             <Form onSubmit={submitHandler}>
               <Form.Group controlId='name'>
                 <Form.Label>Name</Form.Label>
@@ -77,9 +88,13 @@ const RegisterScreen = ({ location, history }) => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 ></Form.Control>
               </Form.Group>
-              <Button type='submit' variant='primary'>
-                Register
-              </Button>
+              <Button
+                text='Sign up'
+                width='100%'
+                type='submit'
+                variant='primary'
+                style={{ padding: '1rem' }}
+              ></Button>
             </Form>
             <Row className='py-3'>
               <Col>
@@ -87,7 +102,7 @@ const RegisterScreen = ({ location, history }) => {
               </Col>
             </Row>
           </FormContainer>
-        </>
+        </div>
       )}
     </>
   )

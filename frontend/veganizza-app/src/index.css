@@ -371,6 +371,28 @@ body {
   justify-content: space-around;
 }
 
+.post-container {
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  justify-content: center;
+}
+
+.post-container img {
+  max-width: 80%;
+}
+
+.post-container h3 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.post-container p {
+  font-size: 1.2rem;
+}
 .restaurant-container {
   display: flex;
   align-items: center;
@@ -870,6 +892,17 @@ header img {
 
   .cart-h2 {
     font-size: 1rem;
+  }
+
+  .post-container h3 {
+    margin-top: 3rem;
+    font-size: 2.2rem;
+  }
+  .post-container p {
+    font-size: 1rem;
+  }
+  .post-container img {
+    max-width: 100%;
   }
 }
 

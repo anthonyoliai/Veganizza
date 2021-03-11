@@ -41,6 +41,7 @@ const BlogScreen = () => {
                     .slice(0, 40)
                     .join(' ')
                     .concat('...')}
+                  id={post._id}
                 ></BlogItem>
               ))}
           </div>

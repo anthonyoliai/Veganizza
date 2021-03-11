@@ -1,7 +1,9 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 import Button from '../components/Button'
-const BlogItem = ({ image, title, description }) => {
+import { useHistory } from 'react-router-dom'
+const BlogItem = ({ image, title, description, id }) => {
+  const history = useHistory()
   return (
     <div className='blog-item'>
       <Card style={{ width: '18rem' }}>
@@ -16,7 +18,13 @@ const BlogItem = ({ image, title, description }) => {
             {description}
           </Card.Text>
         </Card.Body>
-        <Button className='btn-test' width='100px' text='Read more'></Button>
+
+        <Button
+          className='btn-test'
+          width='100px'
+          text='Read more'
+          clickFunc={() => history.push(`/posts/${id}`)}
+        ></Button>
       </Card>
     </div>
   )

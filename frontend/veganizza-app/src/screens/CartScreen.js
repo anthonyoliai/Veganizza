@@ -33,7 +33,7 @@ const CartScreen = () => {
                         fluid
                       ></Image>
                     </Col>
-                    <Col xl={2} md={2} xs={10} style={{ fontWeight: '500' }}>
+                    <Col xl={3} md={2} xs={10} style={{ fontWeight: '500' }}>
                       {item.product.name} {''}x{item.qty}
                     </Col>
                     <Col xl={1} md={2} xs={12} style={{ fontWeight: '500' }}>

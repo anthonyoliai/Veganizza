@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
-import { Image } from 'react-bootstrap'
+import { Row, Col, Image } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+
 import { getPost } from '../actions/postActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import { Card } from 'react-bootstrap'
 import Header from '../components/Header'
-const RestaurantScreen = ({ match }) => {
+import Fade from 'react-reveal/Fade'
+const PostScreen = ({ match }) => {
   const dispatch = useDispatch()
   const singlePost = useSelector((state) => state.getPost)
   const { loading, post, error } = singlePost
@@ -24,18 +25,25 @@ const RestaurantScreen = ({ match }) => {
         <Message variant='danger'>{error}</Message>
       ) : (
         post && (
-          <div className='restaurant-container'>
-            <div>
-              <h3>{post.title}</h3>
-              <Image src={`http://localhost:3000/` + post.image}></Image>
+          <Fade>
+            <div className='post-container'>
+              <Row md={12} className='justify-content-center '>
+                <Col xl={6} md={12}>
+                  <div>
+                    <Image src={`/` + post.image}></Image>
+                  </div>
+                </Col>
+                <Col xl={5} md={12}>
+                  <h3>{post.title}</h3>
+                  <p>{post.description}</p>
+                </Col>
+              </Row>
             </div>
-
-            <p>{post.description}</p>
-          </div>
+          </Fade>
         )
       )}
     </>
   )
 }
 
-export default RestaurantScreen
+export default PostScreen

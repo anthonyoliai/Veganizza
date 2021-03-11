@@ -47,7 +47,7 @@ const LoginScreen = ({ location, history }) => {
                   fontWeight: '600',
                 }}
               >
-                <span style={{ color: '#c72626' }}>Vegan</span>izza
+                <span style={{ color: '#c72626' }}>Log</span>in
               </h1>
               <Form onSubmit={submitHandler}>
                 <Form.Group controlId='email'>
@@ -71,7 +71,7 @@ const LoginScreen = ({ location, history }) => {
                   ></Form.Control>
                 </Form.Group>
                 <Button
-                  text='Sign in'
+                  text='Login'
                   width='100%'
                   type='submit'
                   variant='primary'

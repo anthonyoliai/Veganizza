@@ -23,7 +23,7 @@ const Header = () => {
       <>
         <div className='header-left'>
           <LinkContainer to='/'>
-            <Image className='logo-img' src='images/pizza_logo.svg'></Image>
+            <Image className='logo-img' src='/images/pizza_logo.svg'></Image>
           </LinkContainer>
 
           <Navbar className='navbar-container'>
@@ -56,7 +56,7 @@ const Header = () => {
           )}
           <LinkContainer to='/cart'>
             <div className='header-icon-container'>
-              <Image src='images/icons/cart.svg'></Image>
+              <Image src='/images/icons/cart.svg'></Image>
               {cartItems.length > 0 && (
                 <Bounce>
                   <div className='cart-items-count'>
