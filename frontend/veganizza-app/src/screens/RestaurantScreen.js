@@ -11,15 +11,25 @@ const RestaurantScreen = () => {
       ></Image>
 
       <Bounce right>
-        <h2>Our Restaurant</h2>
+        <div className='restaurant-text-container'>
+          <h2>Our Restaurant</h2>
+
+          <div>
+            <p>Veganizza &nbsp; </p>
+            <p>65 Rue Saint-Dominique &nbsp; </p>
+            <p>
+              75007 Paris <br></br>{' '}
+            </p>
+            <p>
+              Opening Hours: <br></br>
+            </p>
+            <p>
+              Monday - Saturday <br></br>{' '}
+            </p>
+            <p> 12:00-22:00 &nbsp;</p>
+          </div>
+        </div>
       </Bounce>
-      <div>
-        <p>Veganizza</p>
-        <p>65 Rue Saint-Dominique</p>
-        <p>75007 Paris</p>
-        <p>Opening Hours</p>
-        <p>Monday - Saturday 12:00-22:00</p>
-      </div>
     </div>
   )
 }

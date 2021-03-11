@@ -9,9 +9,12 @@ const RecycleScreen = () => {
         <div className='recycle-text'>
           <h2>Buy a vegan pizza and we will donate to #OneTreePlanted!</h2>
           <p>
-            Veganizza donates 1$ to the OneTreePlanted foundation for each pizza
-            you purchase. You get a vegan pizza ánd contribute to the
-            environment. Can it get any better?
+            Veganizza donates 1$ to the{' '}
+            <span style={{ color: '#e93f3f' }}>
+              One Tree Planted foundation
+            </span>{' '}
+            for each pizza you purchase. You get a vegan pizza ánd contribute to
+            the environment. Can it get any better?
           </p>
         </div>
       </Bounce>

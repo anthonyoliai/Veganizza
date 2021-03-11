@@ -32,9 +32,9 @@ const MainScreen = () => {
 
       <RestaurantScreen></RestaurantScreen>
       <RecycleScreen></RecycleScreen>
-      <Fade>
-        <BlogScreen></BlogScreen>
-      </Fade>
+
+      <BlogScreen></BlogScreen>
+
       <Footer></Footer>
     </div>
   )

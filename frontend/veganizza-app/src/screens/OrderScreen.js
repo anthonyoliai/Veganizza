@@ -59,8 +59,8 @@ const OrderScreen = ({ history }) => {
     <>
       {error && <Message variant='danger'>{error}</Message>}
       <Header></Header>
-      <Row className='cartRow justify-content-center '>
-        <Col md={4}>
+      <Row className='cartRow orderRow justify-content-center '>
+        <Col xl={6} md={6}>
           {cartItems.length === 0 ? (
             <Message variant='primary'>
               Your cart is empty! <Link to='/'>Go Back</Link>
@@ -71,7 +71,7 @@ const OrderScreen = ({ history }) => {
               {cartItems.map((item, index) => (
                 <ListGroup.Item key={item.product}>
                   <Row className='align-items-center'>
-                    <Col md={1} style={{ padding: '0' }}>
+                    <Col lg={2} md={3} s={4} xs={3} style={{ padding: '0' }}>
                       <Image
                         src={item.product.image}
                         alt={item.product.name}
@@ -79,9 +79,15 @@ const OrderScreen = ({ history }) => {
                         rounded
                       ></Image>
                     </Col>
-                    <Col md={3}>{item.product.name}</Col>
-                    <Col md={2}>${item.product.price}</Col>
-                    <Col md={1}>x{item.qty}</Col>
+                    <Col md={3} s={3} xs={4}>
+                      {item.product.name}
+                    </Col>
+                    <Col md={3} s={3} xs={3}>
+                      ${item.product.price}
+                    </Col>
+                    <Col md={3} s={3} xs={2}>
+                      x{item.qty}
+                    </Col>
                   </Row>
                 </ListGroup.Item>
               ))}
@@ -97,7 +103,7 @@ const OrderScreen = ({ history }) => {
           )}
         </Col>
         {cartItems.length > 0 && (
-          <Col className='order-col' md={3}>
+          <Col className='order-col' xl={3} md={5}>
             <Card>
               <ListGroup variant='flush'>
                 <ListGroup.Item className='order-header'>

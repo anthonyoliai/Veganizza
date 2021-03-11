@@ -63,13 +63,13 @@ const SingleOrderScreen = ({ history, match }) => {
           {' '}
           {order && (
             <Row className='cartRow justify-content-center single-order '>
-              <Col md={4}>
+              <Col xl={6} md={6}>
                 <ListGroup variant='flush'>
                   <h3>ITEMS OF CHOICE</h3>
                   {order.orderItems.map((item, index) => (
                     <ListGroup.Item key={item.product}>
                       <Row className='align-items-center' align='center'>
-                        <Col md={2}>
+                        <Col xl={3} lg={2} md={4} s={2} xs={4}>
                           <Image
                             src={item.product.image}
                             alt={item.product.name}
@@ -77,9 +77,15 @@ const SingleOrderScreen = ({ history, match }) => {
                             rounded
                           ></Image>
                         </Col>
-                        <Col md={3}>{item.product.name}</Col>
-                        <Col md={2}>${item.product.price}</Col>
-                        <Col md={1}>x{item.qty}</Col>
+                        <Col md={3} xs={3}>
+                          {item.product.name}
+                        </Col>
+                        <Col md={3} xs={3}>
+                          ${item.product.price}
+                        </Col>
+                        <Col md={3} xs={2}>
+                          x{item.qty}
+                        </Col>
                       </Row>
                     </ListGroup.Item>
                   ))}
@@ -100,7 +106,7 @@ const SingleOrderScreen = ({ history, match }) => {
                 </ListGroup>
               </Col>
 
-              <Col className='order-col' md={3}>
+              <Col className='order-col' xl={3} md={5}>
                 <Card>
                   <ListGroup variant='flush'>
                     <ListGroup.Item className='order-header'>

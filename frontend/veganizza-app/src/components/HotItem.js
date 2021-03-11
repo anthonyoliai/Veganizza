@@ -14,7 +14,7 @@ const HotItem = ({ product }) => {
     <div>
       <Card
         border='danger'
-        style={{ width: '18rem', borderStyle: 'dashed', borderWidth: '2px' }}
+        style={{ borderStyle: 'dashed', borderWidth: '2px' }}
       >
         <Card.Img variant='top' src={product.image} />
         <Card.Body>

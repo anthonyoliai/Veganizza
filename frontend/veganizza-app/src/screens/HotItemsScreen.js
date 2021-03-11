@@ -18,7 +18,7 @@ const HotItemsScreen = () => {
         <>
           <div className='topSellersContainer'>
             <div className='topSellers'>
-              <Image src='images/star.svg'></Image>
+              <Image classname='star-svg' src='images/star.svg'></Image>
               <>
                 <h2 style={{ color: '#C72626', paddingRight: '15px' }}>TOP</h2>{' '}
                 <h2>SELLERS</h2>

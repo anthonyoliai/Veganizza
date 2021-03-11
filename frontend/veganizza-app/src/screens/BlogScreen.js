@@ -20,6 +20,7 @@ const BlogScreen = () => {
       ) : (
         <>
           <h2
+            className='blog-header'
             style={{
               fontWeight: '600',
               textAlign: 'center',
@@ -29,7 +30,7 @@ const BlogScreen = () => {
           >
             Latest News
           </h2>
-          <div className='blog-container'>
+          <div className='blog-container' align='center'>
             {posts &&
               posts.map((post) => (
                 <BlogItem

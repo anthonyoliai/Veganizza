@@ -38,7 +38,7 @@ const MenuScreen = () => {
           </div>
           <div className='menu-items'>
             <Container fluid>
-              <Row xs={1} s={2} md={2} lg={2} xl={3}>
+              <Row xs={1} s={2} md={1} lg={2} xl={3}>
                 {products &&
                   products.map((product, index) => (
                     <Col>

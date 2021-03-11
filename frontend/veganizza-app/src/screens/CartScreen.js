@@ -15,7 +15,7 @@ const CartScreen = () => {
     <>
       <Header></Header>
       <Row className='cartRow justify-content-center cartScreen'>
-        <Col md={5}>
+        <Col xl={6} lg={8} md={8} xs={10}>
           <h1 style={{ fontWeight: '500', fontSize: '2rem' }}>SHOPPING CART</h1>
           {cartItems.length === 0 ? (
             <Message variant='primary'>
@@ -26,20 +26,20 @@ const CartScreen = () => {
               {cartItems.map((item, index) => (
                 <ListGroup.Item key={item.product}>
                   <Row className='align-items-center'>
-                    <Col md={2} style={{ padding: '0' }}>
+                    <Col xl={2} md={4} xs={12} style={{ padding: '0' }}>
                       <Image
                         src={item.product.image}
                         alt={item.product.name}
                         fluid
                       ></Image>
                     </Col>
-                    <Col md={2} style={{ fontWeight: '500' }}>
-                      {item.product.name}
+                    <Col xl={2} md={2} xs={10} style={{ fontWeight: '500' }}>
+                      {item.product.name} {''}x{item.qty}
                     </Col>
-                    <Col md={2} style={{ fontWeight: '500' }}>
+                    <Col xl={1} md={2} xs={12} style={{ fontWeight: '500' }}>
                       ${item.product.price}
                     </Col>
-                    <Col md={2} align='center'>
+                    <Col xl={3} md={3} xs={10} align='center'>
                       <button
                         className='button cart-button'
                         onClick={() =>
@@ -55,16 +55,17 @@ const CartScreen = () => {
                         +
                       </button>
                     </Col>
-                    <Col mod={1}>x{item.qty}</Col>
-                    <Col md={2}>
+
+                    <Col xl={2} md={1} xs={1}>
                       <button
+                        className='remove-cart-btn'
                         style={{
                           border: 'none',
                           backgroundColor: 'white',
                         }}
                         onClick={() => dispatch(removeFromCart(item.product))}
                       >
-                        <i className='fas fa-trash'></i>
+                        <i className='fas fa-trash fa-lg'></i>
                       </button>
                     </Col>
                   </Row>
@@ -74,11 +75,11 @@ const CartScreen = () => {
           )}
         </Col>
         {cartItems.length > 0 && (
-          <Col md={3}>
+          <Col xl={4} lg={4} md={4}>
             <Card>
               <ListGroup variant='flush'>
                 <ListGroup.Item>
-                  <h2 style={{ marginBottom: '1rem' }}>
+                  <h2 className='cart-h2' style={{ marginBottom: '1rem' }}>
                     SUBTOTAL (
                     {cartItems.reduce((acc, item) => acc + item.qty, 0)}) ITEMS
                   </h2>
@@ -103,6 +104,7 @@ const CartScreen = () => {
                       width='100%'
                       text='Proceed to Checkout'
                       style={{ display: 'block', padding: '1rem' }}
+                      className='checkout-btn'
                     ></Button>
                   </Link>
                 </ListGroup.Item>

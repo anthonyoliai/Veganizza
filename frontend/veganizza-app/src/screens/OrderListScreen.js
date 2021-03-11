@@ -43,7 +43,7 @@ const ProfileScreen = ({ history }) => {
             ) : errorOrders ? (
               <Message variant='danger'>{errorOrders}</Message>
             ) : (
-              <Table striped bordered hover responsive className='table-sm'>
+              <Table striped bordered hover className='table-sm'>
                 <thead>
                   <tr>
                     <th>ORDER</th>
@@ -64,15 +64,10 @@ const ProfileScreen = ({ history }) => {
                           <td>#{key}</td>
                         </LinkContainer>
 
-                        <td>
-                          {dateFormat(
-                            order.createdAt,
-                            'dddd, mmmm dS, yyyy, h:MM:ss TT'
-                          )}
-                        </td>
+                        <td>{order.createdAt.slice(0, 10)}</td>
                         <td>${order.totalPrice}</td>
 
-                        <td>
+                        <td className='delivered-td'>
                           {order.isDelivered ? (
                             <i
                               className='fas fa-check'
