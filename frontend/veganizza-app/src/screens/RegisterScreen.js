@@ -38,8 +38,6 @@ const RegisterScreen = ({ location, history }) => {
       <Header></Header>
       {loading ? (
         <Loader></Loader>
-      ) : error ? (
-        <Message variant='danger'>{error}</Message>
       ) : (
         <div className='login-container'>
           <FormContainer>
@@ -52,6 +50,15 @@ const RegisterScreen = ({ location, history }) => {
             >
               <span style={{ color: '#c72626' }}>Sign</span>up
             </h1>
+            {error && (
+              <Message
+                className='text-center'
+                variant='danger'
+                dismissible='true'
+              >
+                Incorrect email or password.
+              </Message>
+            )}
             {message && <Message variant='danger'>{message}</Message>}
             <Form onSubmit={submitHandler}>
               <Form.Group controlId='name'>

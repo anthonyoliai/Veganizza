@@ -28,7 +28,7 @@ const OrderScreen = ({ history }) => {
       dispatch(resetOrder())
       history.push(`/order/${order._id}`)
     }
-  }, [dispatch, cartItems, orderCreate, history, order._id, success])
+  }, [dispatch, cartItems, orderCreate, history,success])
 
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult)

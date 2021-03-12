@@ -1,8 +1,10 @@
-import { Button, Form } from 'react-bootstrap'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import Button from '../components/Button'
+import { Form } from 'react-bootstrap'
 import FormContainer from '../components/FormContainer'
+import Message from '../components/Message'
 import { saveShippingAddress } from '../actions/cartActions'
 
 const ShippingScreen = ({ history }) => {
@@ -14,18 +16,24 @@ const ShippingScreen = ({ history }) => {
   const [city, setCity] = useState(shippingAddress.city)
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode)
   const [country, setCountry] = useState(shippingAddress.country)
+  const [message, setMessage] = useState(null)
   const dispatch = useDispatch()
 
   const submitHandler = (e) => {
     e.preventDefault()
-    dispatch(saveShippingAddress({ address, city, postalCode, country }))
-    history.push('/order')
+    if (!address || !city || !postalCode || !country)
+      setMessage('Please enter all your details!')
+    else {
+      dispatch(saveShippingAddress({ address, city, postalCode, country }))
+      history.push('/order')
+    }
   }
   if (!userInfo) history.push('/login')
   return (
     <div className='login-container'>
       <FormContainer>
-        <h1>Shipping</h1>
+        <h1 style={{ fontWeight: 600, textAlign: 'center' }}>Shipping</h1>
+        {message && <Message variant='danger'>{message}</Message>}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='address'>
             <Form.Label>Address</Form.Label>
@@ -63,9 +71,13 @@ const ShippingScreen = ({ history }) => {
               onChange={(e) => setCountry(e.target.value)}
             ></Form.Control>
           </Form.Group>
-          <Button type='submit' variant='primary'>
-            Continue
-          </Button>
+          <Button
+            text='Continue'
+            width='100%'
+            type='submit'
+            variant='primary'
+            style={{ padding: '1rem' }}
+          ></Button>
         </Form>
       </FormContainer>
     </div>

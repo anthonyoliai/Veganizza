@@ -547,12 +547,20 @@ footer {
   height: 50vh;
   margin-top: 2rem;
 }
+
+.login-container h1 {
+  margin-top: 25%;
+}
 .login-container a {
   color: #c72626;
 }
 .login-container input {
   border-radius: 0;
   border: 1px solid gray !important;
+}
+
+.login-container .alert {
+  margin-top: 5%;
 }
 header img {
   cursor: pointer;
