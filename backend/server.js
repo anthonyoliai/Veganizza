@@ -1,5 +1,4 @@
 import connectDB from './config/db.js'
-import dotenv from 'dotenv'
 import express from 'express'
 import orderRoutes from './routes/orderRoutes.js'
 import path from 'path'
@@ -8,7 +7,6 @@ import productRoutes from './routes/productRoutes.js'
 import promoRoutes from './routes/promoRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 
-dotenv.config()
 const app = express()
 app.use(express.json())
 
