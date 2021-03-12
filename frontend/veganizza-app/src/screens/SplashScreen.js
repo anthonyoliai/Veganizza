@@ -1,7 +1,7 @@
-import React from 'react'
-import Image from 'react-bootstrap/Image'
 import Button from '../components/Button'
+import Image from 'react-bootstrap/Image'
 import { Link } from 'react-scroll'
+import React from 'react'
 
 const Splash = () => {
   return (
@@ -12,7 +12,7 @@ const Splash = () => {
         <h3>Veganizza</h3>
         <p>
           Steaming hot vegan pizza
-          <br></br> served in 2 minutes
+          <br></br> served in five minutes!
         </p>
         <Link
           activeClass='active'

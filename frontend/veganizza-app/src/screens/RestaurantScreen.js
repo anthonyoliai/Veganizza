@@ -1,7 +1,7 @@
-import React from 'react'
-import { Image } from 'react-bootstrap'
 import Bounce from 'react-reveal/Bounce'
-import Fade from 'react-reveal/Fade'
+import { Image } from 'react-bootstrap'
+import React from 'react'
+
 const RestaurantScreen = () => {
   return (
     <div className='restaurant-container'>

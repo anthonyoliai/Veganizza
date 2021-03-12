@@ -1,5 +1,6 @@
-import React from 'react'
 import Image from 'react-bootstrap/Image'
+import React from 'react'
+
 const Steps = () => {
   return (
     <div className='steps-container'>

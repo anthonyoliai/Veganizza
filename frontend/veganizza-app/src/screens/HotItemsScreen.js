@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
 import HotItem from '../components/HotItem'
 import { Image } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
-import { listProducts } from '../actions/productActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import React from 'react'
+import { useSelector } from 'react-redux'
+
 const HotItemsScreen = () => {
   const productList = useSelector((state) => state.productList)
   const { products, loading, error } = productList
@@ -18,7 +18,7 @@ const HotItemsScreen = () => {
         <>
           <div className='topSellersContainer'>
             <div className='topSellers'>
-              <Image classname='star-svg' src='images/star.svg'></Image>
+              <Image className='star-svg' src='images/star.svg'></Image>
               <>
                 <h2 style={{ color: '#C72626', paddingRight: '15px' }}>TOP</h2>{' '}
                 <h2>SELLERS</h2>
@@ -32,6 +32,7 @@ const HotItemsScreen = () => {
                       <HotItem
                         style={{ paddingBottom: '50px' }}
                         product={product}
+                        key={product._id}
                       ></HotItem>
                     )
                 )}

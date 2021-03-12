@@ -1,8 +1,8 @@
 import {
   ADD_CART,
+  CART_RESET,
   REMOVE_CART,
   SAVE_SHIPPING_ADDRESS,
-  CART_RESET,
 } from '../constants/cartConstants'
 
 export const cartReducer = (
@@ -22,7 +22,6 @@ export const cartReducer = (
   switch (action.type) {
     case ADD_CART:
       const item = action.payload
-      console.log(item)
       const itemFoundIndex = state.cartItems.findIndex(
         (x) => x.product._id === item.product._id
       )
@@ -31,7 +30,6 @@ export const cartReducer = (
         item.qty += old_qty
         state.cartItems.splice(itemFoundIndex, 1)
       }
-
       return {
         ...state,
         cartItems: [...state.cartItems, item].sort(compare),

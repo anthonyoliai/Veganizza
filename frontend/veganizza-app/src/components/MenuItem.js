@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Image } from 'react-bootstrap'
+
 import Button from '../components/Button'
+import { Image } from 'react-bootstrap'
 import Quantity from '../components/Quantity'
 import { addToCart } from '../actions/cartActions'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 const MenuItem = ({ product }) => {
   const [quantity, setQuantity] = useState(1)
@@ -14,9 +15,9 @@ const MenuItem = ({ product }) => {
   }
 
   return (
-    <div class='menu-item'>
+    <div className='menu-item'>
       <Image className='menu-image' src={product.image}></Image>
-      <div class='menu-body'>
+      <div className='menu-body'>
         <h2>{product.name}</h2>
         <p>{product.description}</p>
         <p>${product.price}</p>

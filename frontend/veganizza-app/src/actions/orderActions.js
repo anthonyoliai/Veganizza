@@ -1,19 +1,21 @@
 import {
-  ORDER_CREATE_SUCCESS,
+  ORDER_ANIMATION_FAIL,
+  ORDER_ANIMATION_REQUEST,
+  ORDER_ANIMATION_SUCCESS,
   ORDER_CREATE_FAIL,
   ORDER_CREATE_REQUEST,
   ORDER_CREATE_RESET,
+  ORDER_CREATE_SUCCESS,
+  ORDER_GET_FAIL,
   ORDER_GET_REQUEST,
   ORDER_GET_SUCCESS,
-  ORDER_GET_FAIL,
-  ORDER_ANIMATION_REQUEST,
-  ORDER_ANIMATION_SUCCESS,
-  ORDER_ANIMATION_FAIL,
+  ORDER_LIST_FAIL,
   ORDER_LIST_REQUEST,
   ORDER_LIST_SUCCESS,
-  ORDER_LIST_FAIL,
 } from '../constants/orderConstants'
+
 import axios from 'axios'
+
 export const createOrder = (order) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -23,15 +25,14 @@ export const createOrder = (order) => async (dispatch, getState) => {
     const {
       userLogin: { userInfo },
     } = getState()
-    console.log('The user info equals')
-    console.log(userInfo)
+
     const config = {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${userInfo.token}`,
       },
     }
-    console.log(order)
+
     const { data } = await axios.post(`/api/orders`, order, config)
 
     dispatch({
@@ -50,7 +51,6 @@ export const createOrder = (order) => async (dispatch, getState) => {
 }
 
 export const resetOrder = () => (dispatch) => {
-  console.log('RESETTING ORDER')
   dispatch({
     type: ORDER_CREATE_RESET,
   })
@@ -74,8 +74,6 @@ export const getOrderById = (id) => async (dispatch, getState) => {
     }
 
     const { data } = await axios.get(`/api/orders/${id}`, config)
-    console.log('Data')
-    console.log(data)
 
     dispatch({
       type: ORDER_GET_SUCCESS,
@@ -110,8 +108,6 @@ export const getMyOrders = () => async (dispatch, getState) => {
     }
 
     const { data } = await axios.get('/api/orders/myorders', config)
-    console.log('Data')
-    console.log(data)
 
     dispatch({
       type: ORDER_LIST_SUCCESS,

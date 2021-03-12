@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 import Carousel from 'react-bootstrap/Carousel'
 import { Image } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
-import { listPromos } from '../actions/promoActions.js'
-import Message from '../components/Message'
 import Loader from '../components/Loader'
+import Message from '../components/Message'
+import { listPromos } from '../actions/promoActions.js'
 
 const PromoScreen = () => {
   const dispatch = useDispatch()

@@ -1,10 +1,12 @@
+import { Col, Container, Image, Row } from 'react-bootstrap'
 import React, { useEffect } from 'react'
-import MenuItem from '../components/MenuItem'
-import { Container, Row, Col, Image } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { listProducts } from '../actions/productActions'
-import Message from '../components/Message'
+
 import Loader from '../components/Loader'
+import MenuItem from '../components/MenuItem'
+import Message from '../components/Message'
+import { listProducts } from '../actions/productActions'
+
 const MenuScreen = () => {
   const dispatch = useDispatch()
   const productList = useSelector((state) => state.productList)
@@ -40,8 +42,8 @@ const MenuScreen = () => {
             <Container fluid>
               <Row xs={1} s={2} md={1} lg={2} xl={3}>
                 {products &&
-                  products.map((product, index) => (
-                    <Col>
+                  products.map((product) => (
+                    <Col key={product._id}>
                       <MenuItem product={product}></MenuItem>
                     </Col>
                   ))}

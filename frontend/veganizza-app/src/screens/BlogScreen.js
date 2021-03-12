@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
-import BlogItem from '../components/BlogItem'
 import { useDispatch, useSelector } from 'react-redux'
-import { listPosts } from '../actions/postActions'
+
+import BlogItem from '../components/BlogItem'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import { listPosts } from '../actions/postActions'
+
 const BlogScreen = () => {
   const dispatch = useDispatch()
   const postList = useSelector((state) => state.postList)
@@ -42,6 +44,7 @@ const BlogScreen = () => {
                     .join(' ')
                     .concat('...')}
                   id={post._id}
+                  key={post._id}
                 ></BlogItem>
               ))}
           </div>

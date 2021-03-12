@@ -1,6 +1,7 @@
-import React from 'react'
-import { Image } from 'react-bootstrap'
 import Bounce from 'react-reveal/Bounce'
+import { Image } from 'react-bootstrap'
+import React from 'react'
+
 const RecycleScreen = () => {
   return (
     <div className='recycle-main-container'>

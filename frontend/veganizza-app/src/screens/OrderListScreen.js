@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { Row, Col, Table } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
+import { Col, Row, Table } from 'react-bootstrap'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
+import Button from '../components/Button'
+import Header from '../components/Header'
+import { LinkContainer } from 'react-router-bootstrap'
+import Loader from '../components/Loader'
 import Message from '../components/Message'
 import { getMyOrders } from '../actions/orderActions'
-import Header from '../components/Header'
-import Button from '../components/Button'
-import dateFormat from 'dateformat'
-import Loader from '../components/Loader'
 
 const ProfileScreen = ({ history }) => {
   const dispatch = useDispatch()
@@ -24,7 +24,7 @@ const ProfileScreen = ({ history }) => {
     } else {
       dispatch(getMyOrders())
     }
-  }, [])
+  }, [dispatch, history, userInfo])
 
   return (
     <>

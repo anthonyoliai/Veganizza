@@ -1,7 +1,8 @@
-import React from 'react'
 import Button from '../components/Button'
 import Image from 'react-bootstrap/Image'
 import { Link } from 'react-scroll'
+import React from 'react'
+
 const WelcomeScreen = () => {
   return (
     <>

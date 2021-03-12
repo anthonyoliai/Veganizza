@@ -1,9 +1,10 @@
+import { Image, Nav, Navbar } from 'react-bootstrap'
 import React, { useEffect } from 'react'
-import { Navbar, Nav, Image } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
-import { useSelector, useDispatch } from 'react-redux'
-import { logout } from '../actions/userActions'
+import { useDispatch, useSelector } from 'react-redux'
+
 import Bounce from 'react-reveal/Bounce'
+import { LinkContainer } from 'react-router-bootstrap'
+import { logout } from '../actions/userActions'
 
 const Header = () => {
   const userLogin = useSelector((state) => state.userLogin)

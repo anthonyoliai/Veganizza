@@ -1,12 +1,13 @@
+import { Col, Image, Row } from 'react-bootstrap'
 import React, { useEffect } from 'react'
-import { Row, Col, Image } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getPost } from '../actions/postActions'
+import Fade from 'react-reveal/Fade'
+import Header from '../components/Header'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import Header from '../components/Header'
-import Fade from 'react-reveal/Fade'
+import { getPost } from '../actions/postActions'
+
 const PostScreen = ({ match }) => {
   const dispatch = useDispatch()
   const singlePost = useSelector((state) => state.getPost)
@@ -14,7 +15,7 @@ const PostScreen = ({ match }) => {
   console.log(post)
   useEffect(() => {
     dispatch(getPost(match.params.id))
-  }, [])
+  }, [dispatch, match.params.id])
 
   return (
     <>

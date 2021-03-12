@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { Form, Row, Col } from 'react-bootstrap'
+import { Col, Form, Row } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import FormContainer from '../components/FormContainer'
-import { register } from '../actions/userActions'
-import Message from '../components/Message'
-import Loader from '../components/Loader'
-import Header from '../components/Header'
+
 import Button from '../components/Button'
+import FormContainer from '../components/FormContainer'
+import Header from '../components/Header'
+import { Link } from 'react-router-dom'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
+import { register } from '../actions/userActions'
+
 const RegisterScreen = ({ location, history }) => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
@@ -50,7 +52,7 @@ const RegisterScreen = ({ location, history }) => {
             >
               <span style={{ color: '#c72626' }}>Sign</span>up
             </h1>
-
+            {message && <Message variant='danger'>{message}</Message>}
             <Form onSubmit={submitHandler}>
               <Form.Group controlId='name'>
                 <Form.Label>Name</Form.Label>

@@ -1,12 +1,12 @@
 import {
+  USER_DETAILS_RESET,
+  USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
-  USER_LOGIN_FAIL,
   USER_LOGOUT,
+  USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
-  USER_REGISTER_FAIL,
-  USER_DETAILS_RESET,
 } from '../constants/userConstants'
 
 import axios from 'axios'
@@ -44,7 +44,6 @@ export const register = (email, password, username) => async (dispatch) => {
   try {
     dispatch({ type: USER_REGISTER_REQUEST })
 
-    //Set config to have content type application/json
     const config = {
       headers: {
         'Content-Type': 'application/json',

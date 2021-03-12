@@ -1,17 +1,17 @@
 import {
-  ORDER_CREATE_REQUEST,
-  ORDER_CREATE_SUCCESS,
-  ORDER_CREATE_FAIL,
-  ORDER_CREATE_RESET,
-  ORDER_GET_REQUEST,
-  ORDER_GET_SUCCESS,
-  ORDER_GET_FAIL,
+  ORDER_ANIMATION_FAIL,
   ORDER_ANIMATION_REQUEST,
   ORDER_ANIMATION_SUCCESS,
-  ORDER_ANIMATION_FAIL,
+  ORDER_CREATE_FAIL,
+  ORDER_CREATE_REQUEST,
+  ORDER_CREATE_RESET,
+  ORDER_CREATE_SUCCESS,
+  ORDER_GET_FAIL,
+  ORDER_GET_REQUEST,
+  ORDER_GET_SUCCESS,
+  ORDER_LIST_FAIL,
   ORDER_LIST_REQUEST,
   ORDER_LIST_SUCCESS,
-  ORDER_LIST_FAIL,
 } from '../constants/orderConstants'
 
 export const orderCreateReducer = (state = {}, action) => {
@@ -54,6 +54,7 @@ export const orderAnimationReducer = (state = {}, action) => {
       return state
   }
 }
+
 export const orderListReducer = (state = { order: [] }, action) => {
   switch (action.type) {
     case ORDER_LIST_REQUEST:

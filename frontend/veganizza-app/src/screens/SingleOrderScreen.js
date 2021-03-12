@@ -1,11 +1,11 @@
+import { Card, Col, Image, ListGroup, Row, Spinner } from 'react-bootstrap'
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { Row, Col, ListGroup, Image, Card, Spinner } from 'react-bootstrap'
+import { getAnimations, getOrderById } from '../actions/orderActions'
+import { useDispatch, useSelector } from 'react-redux'
+
 import Header from '../components/Header'
-import { getOrderById, getAnimations } from '../actions/orderActions'
-import Message from '../components/Message'
 import Lottie from 'react-lottie'
-import dateFormat from 'dateformat'
+import Message from '../components/Message'
 
 const SingleOrderScreen = ({ history, match }) => {
   const userLogin = useSelector((state) => state.userLogin)
@@ -36,7 +36,7 @@ const SingleOrderScreen = ({ history, match }) => {
       dispatch(getOrderById(match.params.id))
     }, 60000)
     return () => clearInterval(interval)
-  }, [])
+  }, [dispatch, match.params.id])
   return (
     <>
       <Header></Header>
@@ -56,7 +56,7 @@ const SingleOrderScreen = ({ history, match }) => {
         >
           <span className='sr-only'>Loading</span>
         </Spinner>
-      ) : error ? (
+      ) : animError ? (
         <Message variant='danger'>{error}</Message>
       ) : (
         <>

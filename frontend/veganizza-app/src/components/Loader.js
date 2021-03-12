@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { getAnimations } from '../actions/orderActions'
+import { useDispatch, useSelector } from 'react-redux'
+
 import Lottie from 'react-lottie'
+import { getAnimations } from '../actions/orderActions'
 
 const Loader = () => {
   const dispatch = useDispatch()
   const orderAnimation = useSelector((state) => state.orderAnimation)
-  const { animation, error: animError } = orderAnimation
+  const { animation } = orderAnimation
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -18,7 +19,7 @@ const Loader = () => {
 
   useEffect(() => {
     dispatch(getAnimations('loader.json'))
-  }, [])
+  }, [dispatch])
 
   return <Lottie options={defaultOptions} height={200} width={200} />
 }

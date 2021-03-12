@@ -1,8 +1,8 @@
-import React from 'react'
-import { Card } from 'react-bootstrap'
 import Button from '../components/Button'
-import { useDispatch } from 'react-redux'
+import { Card } from 'react-bootstrap'
+import React from 'react'
 import { addToCart } from '../actions/cartActions'
+import { useDispatch } from 'react-redux'
 
 const HotItem = ({ product }) => {
   const dispatch = useDispatch()

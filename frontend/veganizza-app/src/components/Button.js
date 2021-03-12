@@ -1,5 +1,4 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 
 const Button = ({ className, width, height, text, clickFunc, style, icon }) => {
   return (

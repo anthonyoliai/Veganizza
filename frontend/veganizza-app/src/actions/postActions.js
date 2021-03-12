@@ -1,10 +1,10 @@
 import {
-  POSTS_REQUEST,
-  POSTS_SUCCESS,
-  POSTS_FAIL,
+  GET_POST_FAIL,
   GET_POST_REQUEST,
   GET_POST_SUCCESS,
-  GET_POST_FAIL,
+  POSTS_FAIL,
+  POSTS_REQUEST,
+  POSTS_SUCCESS,
 } from '../constants/postConstants'
 
 import axios from 'axios'

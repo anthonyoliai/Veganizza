@@ -1,7 +1,7 @@
 import {
+  PROMO_FAIL,
   PROMO_REQUEST,
   PROMO_SUCCESS,
-  PROMO_FAIL,
 } from '../constants/promoConstants'
 
 import axios from 'axios'

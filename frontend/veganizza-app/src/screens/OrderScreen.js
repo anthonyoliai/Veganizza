@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { Row, Col, ListGroup, Image, Form, Card } from 'react-bootstrap'
-import Message from '../components/Message'
-import Header from '../components/Header'
+import { Card, Col, Image, ListGroup, Row } from 'react-bootstrap'
+import React, { useEffect } from 'react'
 import { createOrder, resetOrder } from '../actions/orderActions'
-import { resetCart } from '../actions/cartActions'
+import { useDispatch, useSelector } from 'react-redux'
+
+import Header from '../components/Header'
+import { Link } from 'react-router-dom'
+import Message from '../components/Message'
 import { PayPalButton } from 'react-paypal-button-v2'
+import { resetCart } from '../actions/cartActions'
 
 const OrderScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart)
@@ -27,7 +28,7 @@ const OrderScreen = ({ history }) => {
       dispatch(resetOrder())
       history.push(`/order/${order._id}`)
     }
-  }, [dispatch, cartItems, orderCreate])
+  }, [dispatch, cartItems, orderCreate, history, order._id, success])
 
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult)
