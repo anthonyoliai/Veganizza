@@ -14,7 +14,7 @@ const MenuScreen = () => {
     dispatch(listProducts())
   }, [dispatch])
   return (
-    <>
+    <section id='menu-section'>
       {loading ? (
         <Loader></Loader>
       ) : error ? (
@@ -50,7 +50,7 @@ const MenuScreen = () => {
           </div>
         </div>
       )}
-    </>
+    </section>
   )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../components/Button'
 import Image from 'react-bootstrap/Image'
-
+import { Link } from 'react-scroll'
 const WelcomeScreen = () => {
   return (
     <>
@@ -17,12 +17,20 @@ const WelcomeScreen = () => {
             cheese, which is guaranteed to be super melty, stretchy and savoury.
             Please check our menu to view our fine selection.
           </p>
-          <Button
-            className='welcome-button'
-            width='153px'
-            height='53px'
-            text='View Menu'
-          ></Button>
+          <Link
+            activeClass='active'
+            to='menu-section'
+            spy={true}
+            smooth={true}
+            duration={1000}
+          >
+            <Button
+              className='welcome-button'
+              width='153px'
+              height='53px'
+              text='View Menu'
+            ></Button>
+          </Link>
         </div>
         <div className='image-welcome'>
           <Image className='welcome-image' src='images/welcome.svg'></Image>

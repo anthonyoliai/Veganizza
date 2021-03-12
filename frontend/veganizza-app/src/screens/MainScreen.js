@@ -17,7 +17,7 @@ const MainScreen = () => {
     <div className='main-screen'>
       <Header></Header>
       <SplashScreen></SplashScreen>
-      <Fade bottom>
+      <Fade>
         <WelcomeScreen></WelcomeScreen>
       </Fade>
       <Fade bottom>

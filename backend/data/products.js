@@ -49,13 +49,14 @@ const products = [
   },
   {
     name: 'Pizza Tren',
-    description: 'Pizza with hot peppers and cherry tomatoes.',
+    description:
+      'Pizza with hot peppers and cherry tomatoes, topped with cashew based cheese.',
     image: '/images/thumbnail/pizza_tren_thumb.jpg',
     price: 12.99,
   },
   {
-    name: 'Pizza Genot',
-    description: 'Pizza from heaven',
+    name: 'Pizza Toneg',
+    description: 'Pizza with peppers, black olives and fake tuna.',
     image: '/images/thumbnail/pizza_genot_thumb.jpg',
     price: 15.99,
   },

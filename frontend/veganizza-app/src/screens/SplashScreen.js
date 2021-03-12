@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'react-bootstrap/Image'
 import Button from '../components/Button'
+import { Link } from 'react-scroll'
 
 const Splash = () => {
   return (
@@ -13,12 +14,20 @@ const Splash = () => {
           Steaming hot vegan pizza
           <br></br> served in 2 minutes
         </p>
-        <Button
-          className='splash-button'
-          width='153px'
-          height='53px'
-          text='Order Now'
-        ></Button>
+        <Link
+          activeClass='active'
+          to='menu-section'
+          spy={true}
+          smooth={true}
+          duration={1000}
+        >
+          <Button
+            className='splash-button'
+            width='153px'
+            height='53px'
+            text='Order Now'
+          ></Button>
+        </Link>
       </div>
     </div>
   )

@@ -8,6 +8,7 @@ import { login } from '../actions/userActions'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import Loader from '../components/Loader'
+import { USER_DETAILS_RESET } from '../constants/userConstants'
 
 const LoginScreen = ({ location, history }) => {
   const [email, setEmail] = useState('')
@@ -29,12 +30,10 @@ const LoginScreen = ({ location, history }) => {
     dispatch(login(email, password))
   }
   return (
-    <>
+    <div className='login-wrapper'>
       <Header></Header>
       {loading ? (
         <Loader></Loader>
-      ) : error ? (
-        <Message variant='danger'>{error}</Message>
       ) : (
         <>
           {' '}
@@ -49,6 +48,15 @@ const LoginScreen = ({ location, history }) => {
               >
                 <span style={{ color: '#c72626' }}>Log</span>in
               </h1>
+              {error && (
+                <Message
+                  className='text-center'
+                  variant='danger'
+                  dismissible='true'
+                >
+                  Incorrect email or password.
+                </Message>
+              )}
               <Form onSubmit={submitHandler}>
                 <Form.Group controlId='email'>
                   <Form.Label>Email address</Form.Label>
@@ -94,7 +102,7 @@ const LoginScreen = ({ location, history }) => {
           </div>
         </>
       )}
-    </>
+    </div>
   )
 }
 

@@ -7,7 +7,6 @@ import promoRoutes from './routes/promoRoutes.js'
 import postRoutes from './routes/postRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
-//import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 dotenv.config()
 const app = express()
 app.use(express.json())
@@ -33,4 +32,4 @@ app.use('/animations', express.static(path.join(__dirname, '/animations')))
 const PORT = process.env.PORT || 5000
 app.listen(PORT)
 
-console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}...`)
+console.log(`Server running on port ${PORT}...`)
