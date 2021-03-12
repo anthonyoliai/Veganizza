@@ -1,2 +1,5 @@
 /frontend/veganizza-app/build
+/frontend/veganizza-app/node_modules
+node_modules
+node_modules/
 .env
