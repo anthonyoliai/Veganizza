@@ -205,7 +205,6 @@ button:active {
   color: black;
   font-size: 3rem;
   font-weight: 800;
-  padding: 0px 25px;
 }
 .carousel-control-prev,
 .carousel-control-next {
@@ -935,6 +934,12 @@ header img {
   }
   .cart-area p {
     display: none;
+  }
+  .cart-button {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding: 2px 4px 2px 4px;
+    min-width: 20px;
   }
 }
 @media (max-width: 505px) {
