@@ -28,7 +28,7 @@ const OrderScreen = ({ history }) => {
       dispatch(resetOrder())
       history.push(`/order/${order._id}`)
     }
-  }, [dispatch, cartItems, orderCreate, history,success])
+  }, [dispatch, cartItems, orderCreate, history, success])
 
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult)
@@ -133,6 +133,10 @@ const OrderScreen = ({ history }) => {
                     amount={cart.totalPrice}
                     onSuccess={successPaymentHandler}
                   ></PayPalButton>
+                  <p style={{ color: 'red', fontWeight: '500' }}>
+                    Please note, the site is not actually live! Use a sandbox
+                    paypal account for testing
+                  </p>
                 </ListGroup.Item>
               </ListGroup>
             </Card>
