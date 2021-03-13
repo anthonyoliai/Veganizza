@@ -21,10 +21,10 @@ const HotItem = ({ product }) => {
           <Card.Title style={{ display: 'inline' }}>{product.name}</Card.Title>
           <span
             style={{
-              fontWeight: '500',
+              fontWeight: '600',
               float: 'right',
               position: 'relative',
-              fontSize: '1.1rem',
+              fontSize: '1rem',
             }}
           >
             $13.99

@@ -5,7 +5,7 @@ const Quantity = ({ incrementQty, decrementQty, quantity }) => {
     <div className='qty-container'>
       <button onClick={decrementQty}>-</button>
       <button onClick={incrementQty}>+</button>
-      <h2>Qty: {quantity}</h2>
+      <h2>{quantity}x</h2>
     </div>
   )
 }

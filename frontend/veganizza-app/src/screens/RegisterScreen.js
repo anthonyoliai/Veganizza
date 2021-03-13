@@ -56,7 +56,7 @@ const RegisterScreen = ({ location, history }) => {
                 variant='danger'
                 dismissible='true'
               >
-                Incorrect email or password.
+                Entering all fields is required.
               </Message>
             )}
             {message && <Message variant='danger'>{message}</Message>}

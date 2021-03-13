@@ -7,8 +7,7 @@ const products = [
   },
   {
     name: 'Pizza Pancheta',
-    description:
-      'Pan crusted pizza.Mushroom, garlic, and greenpeppers. Two Vegan cheeses.',
+    description: 'Pan crusted pizza. Mushroom, garlic, and greenpeppers. ',
     image: '/images/thumbnail/pizza_pancheta_thumb.jpg',
     price: 16.99,
     topSeller: true,
@@ -35,22 +34,20 @@ const products = [
   },
   {
     name: 'Pizza Royale',
-    description: 'Pizza with black truffles,mushrooms and basil.',
+    description: 'Pizza with black truffles,mushrooms and basil',
     image: '/images/thumbnail/pizza_royale_thumb.jpg',
     price: 25.99,
   },
   {
     name: 'Pizza Jardina',
-    description:
-      'Stone oven pizza. Black olives, three colored peppers with cucumber and corn.',
+    description: 'Stone oven pizza. Black olives, peppers, cucumber and corn.',
     image: '/images/thumbnail/pizza_jardina_thumb.jpg',
     price: 17.99,
     topSeller: true,
   },
   {
     name: 'Pizza Tren',
-    description:
-      'Pizza with hot peppers and cherry tomatoes, topped with cashew based cheese.',
+    description: 'Pizza with hot peppers and cherry tomatoes.',
     image: '/images/thumbnail/pizza_tren_thumb.jpg',
     price: 12.99,
   },

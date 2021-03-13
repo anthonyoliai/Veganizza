@@ -1,13 +1,13 @@
-import connectDB from './config/db.js'
+import Post from './models/postModel.js'
 import Product from './models/productModel.js'
 import Promo from './models/promoModel.js'
-import promos from './data/promos.js'
-import products from './data/products.js'
-import Post from './models/postModel.js'
-import posts from './data/posts.js'
 import User from './models/userModel.js'
-import users from './data/users.js'
+import connectDB from './config/db.js'
 import dotenv from 'dotenv'
+import posts from './data/posts.js'
+import products from './data/products.js'
+import promos from './data/promos.js'
+import users from './data/users.js'
 
 dotenv.config()
 connectDB()
@@ -17,7 +17,6 @@ const importProducts = async () => {
     await Product.deleteMany()
     const createdProducts = await Product.insertMany(products)
     console.log('Products imported')
-    process.exit()
   } catch (error) {
     console.log('Error!' + error)
     process.exit(1)
@@ -29,7 +28,6 @@ const importPromos = async () => {
     await Promo.deleteMany()
     const createdPromos = await Promo.insertMany(promos)
     console.log('Promos imported')
-    process.exit()
   } catch (error) {
     console.log('Error!' + error)
     process.exit(1)
@@ -41,7 +39,6 @@ const importPosts = async () => {
     await Post.deleteMany()
     const createdPosts = await Post.insertMany(posts)
     console.log('Posts imported')
-    process.exit()
   } catch (error) {
     console.log('Error!' + error)
     process.exit(1)
@@ -60,7 +57,7 @@ const importUsers = async () => {
   }
 }
 
+importPosts()
 importProducts()
 importPromos()
-importPosts()
 importUsers()
