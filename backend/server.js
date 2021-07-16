@@ -7,7 +7,7 @@ import postRoutes from './routes/postRoutes.js'
 import productRoutes from './routes/productRoutes.js'
 import promoRoutes from './routes/promoRoutes.js'
 import userRoutes from './routes/userRoutes.js'
-
+//hi
 const app = express()
 app.use(express.json())
 
