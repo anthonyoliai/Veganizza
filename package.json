@@ -1,6 +1,6 @@
 {
   "name": "veganizza",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "type": "module",
@@ -11,7 +11,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm install --prefix frontend/veganizza-app && npm run build --prefix frontend/veganizza-app"
   },
-  "author": "",
+  "author": "tony",
   "license": "ISC",
   "engines": {
     "node": "14.15.3"
